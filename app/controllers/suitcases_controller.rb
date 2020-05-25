@@ -1,0 +1,2 @@
+class SuitcasesController < ApplicationController
+end
