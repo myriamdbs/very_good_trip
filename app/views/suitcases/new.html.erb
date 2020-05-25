@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Add a new suitcase. Have a fantastic trip!</h1>
+  <%= simple_form_for(@suitcase) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :destination %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.submit %>
+  <% end %>
+</div>
