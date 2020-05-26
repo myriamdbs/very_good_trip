@@ -9,5 +9,6 @@ class ItemsController < ApplicationController
   end
 
   def pack
+    @item.pack = true
   end
 end
