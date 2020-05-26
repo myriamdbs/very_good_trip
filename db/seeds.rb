@@ -27,3 +27,6 @@ suitcase3 = Suitcase.new(name:"Vacances en Corse", start_date:"08/08/2020", end_
 suitcase3.save
 suitcase4 = Suitcase.new(name:"Weekend à la campagne", start_date:"10/07/2020", end_date:"12/07/2020", destination:"Honfleur", user:user4)
 suitcase4.save
+
+item1 = Item.new(name:"Brosse à dents", suitcase:1)
+item1.save
