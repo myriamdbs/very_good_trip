@@ -9,7 +9,8 @@ class ItemsController < ApplicationController
 
   end
 
-  def pack
-    @item.pack = true
+  def pack!
+    @item = Item.find(params[:id])
+    @item.packed = !@item.pac
   end
 end
