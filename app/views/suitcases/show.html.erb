@@ -5,11 +5,20 @@
   <h5><strong>Until: </strong><%= @suitcase.end_date %></h5>
   <h5>Articles dans ma valise : </h5>
   <ul>
-  <% @items.each do |item| %>
-  <%= item.name %>
-  <%= item.packed %>
-  <%= link_to "Remove", item_path(item), method: :delete, data: { confirm: "Are you sure?" } %>
-  <% end %>
+    <% @items.each do |item| %>
+      <li>
+        <%= item.name %>
+        <%if item.packed %>
+          <p>Packed</p>
+          <% cta = "Unpack" %>
+        <% else %>
+          <p>Not packed yet</p>
+          <% cta = "Mark as packed" %>
+        <% end %>
+        <%= link_to cta, item_tick_path(item), method: :patch %>
+        <%= link_to "Remove", item_path(item), method: :delete, data: { confirm: "Are you sure?" } %>
+      </li>
+    <% end %>
   </ul>
 </div>
 

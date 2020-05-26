@@ -8,12 +8,9 @@ class ItemsController < ApplicationController
 
   def destroy
     @item = Item.find(params[:id])
+    authorize @item
     @item.destroy
     redirect_to suitcase_path(@item.suitcase)
   end
 
-  def pack!
-    @item = Item.find(params[:id])
-    @item.packed = !@item.pac
-  end
 end
