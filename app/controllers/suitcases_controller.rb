@@ -2,16 +2,18 @@ class SuitcasesController < ApplicationController
   before_action :find_suitcase, only: [:show]
 
   def index
-    @suitcases = Suitcase.all
+    @suitcases = policy_scope(Suitcase).order(created_at: :desc)
   end
 
   def new
     @suitcase = Suitcase.new
+    authorize @suitcase
   end
 
   def create
     @suitcase = Suitcase.new(suitcase_params)
     @suitcase.user = current_user
+    authorize @suitcase
     if @suitcase.save
       redirect_to suitcases_path
     else
@@ -20,7 +22,7 @@ class SuitcasesController < ApplicationController
   end
 
   def show
-
+    authorize @suitcase
   end
 
 private
