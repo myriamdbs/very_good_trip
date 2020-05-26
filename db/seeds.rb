@@ -8,7 +8,7 @@
 Item.destroy_all
 Suitcase.destroy_all
 User.destroy_all
-
+Suggestion.destroy_all
 
 user1 = User.new(email: "charlotte.pichelot@gmail.com", password: "chacha", first_name: "charlotte", last_name: "pichelot" )
 user1.save
@@ -27,3 +27,29 @@ suitcase3 = Suitcase.new(name:"Vacances en Corse", start_date:"08/08/2020", end_
 suitcase3.save
 suitcase4 = Suitcase.new(name:"Weekend à la campagne", start_date:"10/07/2020", end_date:"12/07/2020", destination:"Honfleur", user:user4)
 suitcase4.save
+
+# categories = {
+#   "piscine" => ["maillot", "serviette"],
+#   "plage" => ["maillot", "serviette", "tongs"]
+# }
+
+items = {
+  "maillot" => ["piscine", "plage"],
+  "serviette" => ["piscine", "plage", "fitness"]
+}
+
+items.each do |item, categories|
+  suggestion = Suggestion.create!(name: item)
+  suggestion.tag_list.add(categories)
+  suggestion.save!
+end
+
+# categories.each do |category, suggestions|
+#   suggestions.each do |suggestion_name|
+#     suggestion = Suggestion.create!(name: suggestion_name)
+#     suggestion.tag_list.add(category)
+#     suggestion.save!
+#   end
+# end
+
+
