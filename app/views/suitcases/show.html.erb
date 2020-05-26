@@ -4,6 +4,7 @@
   <h5><strong>From: </strong><%= @suitcase.start_date %></h5>
   <h5><strong>Until: </strong><%= @suitcase.end_date %></h5>
   <h5>Articles dans ma valise : </h5>
+  <h6><%= link_to "Ajouter un article à ma valise",  new_suitcase_item_path(@suitcase) %></h6>
   <ul>
     <% @items.each do |item| %>
       <li>
