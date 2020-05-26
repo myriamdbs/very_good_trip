@@ -23,6 +23,7 @@ class SuitcasesController < ApplicationController
 
   def show
     authorize @suitcase
+    @items = @suitcase.items
   end
 
 private
