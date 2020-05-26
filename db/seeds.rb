@@ -28,5 +28,11 @@ suitcase3.save
 suitcase4 = Suitcase.new(name:"Weekend à la campagne", start_date:"10/07/2020", end_date:"12/07/2020", destination:"Honfleur", user:user4)
 suitcase4.save
 
-item1 = Item.new(name:"Brosse à dents", suitcase:1)
+item1 = Item.new(name:"Brosse à dents", suitcase:suitcase1)
 item1.save
+item2 = Item.new(name:"Dentifrice", suitcase:suitcase2)
+item2.save
+item3 = Item.new(name:"Ceinture", suitcase:suitcase3)
+item3.save
+item4 = Item.new(name:"T-shirt", suitcase:suitcase4)
+item4.save
