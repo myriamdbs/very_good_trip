@@ -1,2 +1,8 @@
-<h1>Items#new</h1>
-<p>Find me in app/views/items/new.html.erb</p>
+<div class="container">
+  <h1>Add a new "item" to your suitcase</h1>
+  
+  <%= simple_form_for [@suitcase, @item] do |f| %>
+    <%= f.input :name %>
+    <%= f.submit %>
+  <% end %>
+</div>
