@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  def new
+  def new 
+   @suitcase = Item.new
   end
 
   def create
