@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+
   end
 
   def pack
