@@ -1,6 +1,12 @@
 <h1>Mes valises</h1>
 <ul>
   <% @suitcases.each do |suitcase|%>
-    <li><%= suitcase.name %></li>
+    <li>
+      <%= link_to suitcase.name, suitcase_path(suitcase)  %>
+    </li>
   <% end %>
 </ul>
+
+<% if policy(Suitcase).create? %>
+  <%= link_to "Créer une nouvelle valise", new_suitcase_path %>
+<% end %>
