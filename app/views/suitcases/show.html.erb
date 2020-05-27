@@ -17,6 +17,14 @@
     </div>
   </div>
   <br>
+
+  <%= link_to "Checked", suitcase_path(@suitcase, filter: :checked), class: "btn btn-primary" %>
+
+  <%#= form_tag suitcase_path(@suitcase), method: :get do %>
+      <%#= check_box_tag 'checked' %>
+      <%#= submit_tag "Filtrer", class: "btn btn-primary" %>
+  <%# end %>
+    
   <div class="row">
     <div class="col-12">
         <% @items.each do |item| %>
@@ -27,7 +35,7 @@
             <% else %>
               <% cta = "[ ]" %>
             <% end %>
-            <%= link_to cta, item_tick_path(item), method: :patch %>
+            <%= link_to cta, item_tick_path(item), method: :patch, remote: true %>
           </div>
           <div class="item-name">
             <strong><%= item.name %></strong>
