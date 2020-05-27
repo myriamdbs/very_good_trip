@@ -17,9 +17,16 @@
     </div>
   </div>
   <br>
+  <div class="row">
+    <div class="col-12" style="display: flex; justify-content: center; align-items: center">
+      <%= link_to "Packed", suitcase_path(@suitcase, filter: :checked), class: "btn btn-success btn-packed" %>
+      <%= link_to "Unpacked", suitcase_path(@suitcase, filter: :unchecked), class: "btn btn-success btn-packed" %>
+      <%= link_to "All", suitcase_path(@suitcase), class: "btn btn-success" %>
+    </div>
+  </div>
+  
 
-  <%= link_to "Checked", suitcase_path(@suitcase, filter: :checked), class: "btn btn-primary" %>
-
+   <br>
   <%#= form_tag suitcase_path(@suitcase), method: :get do %>
       <%#= check_box_tag 'checked' %>
       <%#= submit_tag "Filtrer", class: "btn btn-primary" %>
@@ -49,6 +56,7 @@
   </div>
   <%= link_to "Voir des suggestions", suitcase_interests_path(@suitcase)  %>
 </div>
+
 
 
 
