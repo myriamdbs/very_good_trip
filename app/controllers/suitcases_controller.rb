@@ -34,7 +34,7 @@ private
   end
 
   def suitcase_params
-    params.require(:suitcase).permit(:name, :destination, :start_date, :end_date, :shared, :user)
+    params.require(:suitcase).permit(:name, :destination, :start_date, :end_date, :shared, :user, :photo)
   end
 
   def add_essential_items

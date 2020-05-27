@@ -5,6 +5,7 @@
     <%= f.input :destination, placeholder: 'Barcelone' %>
     <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"}, placeholder: "2020-08-01" %>
     <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"}, placeholder: "2020-08-20" %>
+    <%= f.input :photo, as: :file %>
     <%= f.submit %>
   <% end %>
 </div>
