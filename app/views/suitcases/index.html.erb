@@ -1,6 +1,29 @@
 <div class="container">
-  <h1>My suitcases</h1>
-  <ul>
+  <h1>Mes anciennes valises</h1>
+  <div class="row">
+  <% @suitcases.each do |suitcase|%>
+    <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
+      <div class="card">
+        <img src="https://www.autoescape.com/blog/wp-content/uploads/2017/01/roadtrip.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h3 class="card-title"><%= suitcase.name %></h3>
+          <h6 class="card-title"><strong>Ma valise pour</strong> <%= suitcase.destination %></h6>
+          <%= link_to "Accéder à ma valise", suitcase_path(suitcase)  %>
+        </div>
+      </div>
+      <br>
+    </div>
+  <% end %>
+  </div>
+
+  <% if policy(Suitcase).create? %>
+    <%= link_to "Créer une nouvelle valise", new_suitcase_path, class: "btn btn-primary"  %>
+  <% end %>
+</div>
+
+
+<% if false %>
+<ul>
     <% @suitcases.each do |suitcase|%>
       <li>
         <%= link_to suitcase.name, suitcase_path(suitcase) %>
@@ -12,4 +35,8 @@
     <%= link_to "Créer une nouvelle valise", new_suitcase_path, class: "btn btn-primary"  %>
   <% end %>
 </div>
+<% end %>
+
+
+
 
