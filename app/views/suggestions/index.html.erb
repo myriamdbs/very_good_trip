@@ -1,0 +1,19 @@
+<h1>Element suggérés</h1>
+<ul>
+  <% @suggestions.each do |suggestion| %>
+    <li>
+      <%= suggestion.name %>
+      <% if @suitcase.items.include?(Item.find_by(name: suggestion.name)) %>
+        <%= link_to item_path(Item.find_by(name: suggestion.name)), method: :delete do %>
+          <i class="far fa-minus-square"></i>
+        <% end %>
+      <% else %>
+        <%= link_to suitcase_items_path(@suitcase, params: { suggestion_name: suggestion.name }), method: :post do %>
+          <i class="far fa-plus-square"></i>
+        <% end %>
+      <% end %>
+
+    </li>
+  <% end %>
+</ul>
+<%= link_to "Voir ma valise", suitcase_path(@suitcase)  %>

@@ -28,26 +28,52 @@ suitcase3.save
 suitcase4 = Suitcase.new(name:"Weekend à la campagne", start_date:"10/07/2020", end_date:"12/07/2020", destination:"Honfleur", user:user4)
 suitcase4.save
 
-# categories = {
+items = {
+  "Maillot de bain" => ["Piscine", "Plage"],
+  "Serviette" => ["Piscine", "Plage", "Fitness"],
+  "Lunettes de soleil" => ["Plage", "Randonée"],
+  "Parasol" => ["Plage"],
+  "Tongs" => ["Piscine", "Plage"],
+  "Chapeau / Casquette" => ["Plage", "Randonnée"],
+  "Crème solaire" => ["Randonée", 'plage',"Sport d'hiver"],
+  "Après-Soleil" => ["Plage", "Randonnée"],
+  "Anti-moustique" => ["Randonée"],
+  "Gourde" => ["Randonée", "Fitness"],
+  "Chaussures de running" => ["Fitness"],
+  "Chaussures de marche" => ["Randonée"],
+  "Kit de secours" => ["Randonée"],
+  "Batterie portable externe" => ["Randonée"],
+  "Sac à dos" => ["Randonée"],
+  "Après-ski" => ["Sport d'hiver"],
+  "Baume à lèvre" => ["Sport d'hiver"],
+  "Bonnet" => ["Sport d'hiver"],
+  "Casque" => ["Sport d'hiver"],
+  "Echarpe" => ["Sport d'hiver"],
+  "Masque de ski" => ["Sport d'hiver"],
+  "Gants" => ["Sport d'hiver", "Randonée"],
+  "Appareil Photo" => ["Photo"],
+  "Chargeur d'appareil photo" => ["Photo"],
+  "Objectifs" => ["Photo"],
+  "Trépied" => ["Photo"],
+  "Cartes mémoire" => ["Photo"],
+  "Sac d'appareil photo" => ["Photo"],
+}
+
+items.each do |item, interests|
+  suggestion = Suggestion.create!(name: item)
+  suggestion.interest_list.add(interests)
+  suggestion.save!
+end
+
+# interests = {
 #   "piscine" => ["maillot", "serviette"],
 #   "plage" => ["maillot", "serviette", "tongs"]
 # }
 
-items = {
-  "maillot" => ["piscine", "plage"],
-  "serviette" => ["piscine", "plage", "fitness"]
-}
-
-items.each do |item, categories|
-  suggestion = Suggestion.create!(name: item)
-  suggestion.tag_list.add(categories)
-  suggestion.save!
-end
-
-# categories.each do |category, suggestions|
+# interests.each do |interest, suggestions|
 #   suggestions.each do |suggestion_name|
 #     suggestion = Suggestion.create!(name: suggestion_name)
-#     suggestion.tag_list.add(category)
+#     suggestion.tag_list.add(interest)
 #     suggestion.save!
 #   end
 # end

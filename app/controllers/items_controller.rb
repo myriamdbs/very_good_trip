@@ -1,14 +1,14 @@
 class ItemsController < ApplicationController
-  
-  def new 
+
+  def new
     @suitcase = Suitcase.find(params[:suitcase_id])
-    @item = Item.new 
+    @item = Item.new
     authorize @item
   end
 
   def create
     @suitcase = Suitcase.find(params[:suitcase_id])
-    @item = Item.new(item_params)
+    @item = Item.new(name: params[:suggestion_name])
     authorize @item
     @item.suitcase = @suitcase
     user = @suitcase.user
@@ -31,9 +31,11 @@ class ItemsController < ApplicationController
 
 private
 
-    def item_params
-        params.require(:item).permit(:name)
+  def item_params
+    if params[:item]
+      params.require(:item).permit(:name)
+    else
+      params.require(:suitcase).permit(:name)
     end
-
-
+  end
 end
