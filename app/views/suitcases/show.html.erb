@@ -1,35 +1,45 @@
 <div class="container">
-  <h1><%= @suitcase.name %></h1>
-  <h5><strong>For: </strong><%= @suitcase.destination %></h5>
-  <h5><strong>From: </strong><%= @suitcase.start_date %></h5>
-  <h5><strong>Until: </strong><%= @suitcase.end_date %></h5>
-  <h5>Articles dans ma valise : </h5>
-  <br>
-  <div style="margin: 0 auto">
-    <h6 class="text-center"><%= link_to "Add an item", new_suitcase_item_path(@suitcase) %></h6>
- 
+  <div class="row">
+    <div class="col-12">
+      <div>
+        <h1><%= @suitcase.name %></h1>
+        <h5><strong>For: </strong><%= @suitcase.destination %></h5>
+        <h5><strong>From: </strong><%= @suitcase.start_date %></h5>
+        <h5><strong>Until: </strong><%= @suitcase.end_date %></h5>
+        <h5>Articles dans ma valise : </h5>
+      </div> 
+    </div>
   </div>
   <br>
-  <ul>
-    <% @items.each do |item| %>
-      <div class="item-wrap">
-        <div class="item-packed">
-          <%if item.packed %>
-            <% cta = "[x]" %>
-          <% else %>
-            <% cta = "[ ]" %>
-          <% end %>
-          <%= link_to cta, item_tick_path(item), method: :patch %>
-         </div>
-        <div class="item-name">
-          <strong><%= item.name %></strong>
-        </div>  
-        <div class="item-remove">
-          <%= link_to image_tag("rubbish.png", class: "remove-picture"), item_path(item), method: :delete, data: { confirm: "Are you sure?" } %>
+  <div class="row"> 
+    <div class="col-12" style="display: flex; justify-content: center; align-items: center">
+      <%= link_to '<i class="fas fa-plus-circle"></i>'.html_safe, new_suitcase_item_path(@suitcase), class: "img-add" %>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-12">
+        <% @items.each do |item| %>
+        <div class="item-wrap">
+          <div class="item-packed">
+            <%if item.packed %>
+              <% cta = "[x]" %>
+            <% else %>
+              <% cta = "[ ]" %>
+            <% end %>
+            <%= link_to cta, item_tick_path(item), method: :patch %>
+          </div>
+          <div class="item-name">
+            <strong><%= item.name %></strong>
+          </div>  
+          <div class="item-remove">
+            <%= link_to image_tag("rubbish.png", class: "remove-picture"), item_path(item), method: :delete, data: { confirm: "Are you sure?" } %>
+          </div>
         </div>
-      </div>
-    <% end %>
-  </ul>
+        <% end %>
+     
+    </div>
+  </div>
 </div>
 
 
