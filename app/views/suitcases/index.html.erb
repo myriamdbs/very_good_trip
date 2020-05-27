@@ -4,7 +4,13 @@
   <% @suitcases.each do |suitcase|%>
     <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
       <div class="card">
-        <img src="https://freesvg.org/img/Tiled%20Wave%20Pattern.png" class="card-img-top" alt="...">
+        <div class="card-index-photo">
+          <% if suitcase.photo.attached? %>
+            <%= cl_image_tag suitcase.photo.key, width: 300, crop: :fill %>
+          <% else %>
+            <%= cl_image_tag ("waves_vacation_omfcsd.png"), width: 300, crop: :fill %>
+          <% end %>
+        </div>
         <div class="card-body">
           <h3 class="card-title"><%= suitcase.name %></h3>
           <h6 class="card-title"><strong>Ma valise pour</strong> <%= suitcase.destination %></h6>
@@ -21,6 +27,5 @@
   <% end %>
 </div>
 
-<%= cl_image_tag("https://res.cloudinary.com/dhhkwopvg/image/upload/v1590588793/waves_vacation_omfcsd.png",
-      width: 400, height: 300, crop: :fill) %>
+
 
