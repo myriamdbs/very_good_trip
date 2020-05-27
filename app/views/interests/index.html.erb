@@ -1,0 +1,8 @@
+<h1>Interest#index</h1>
+<ul>
+  <% @interests.each do |interest| %>
+    <li>
+      <%= link_to interest, suitcase_suggestions_path(@suitcase, {interest: interest.name})  %>
+    </li>
+  <% end %>
+</ul>

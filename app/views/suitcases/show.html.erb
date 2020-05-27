@@ -44,10 +44,10 @@
             <%= link_to image_tag("rubbish.png", class: "remove-picture"), item_path(item), method: :delete, data: { confirm: "Are you sure?" } %>
           </div>
         </div>
-        <% end %>
-     
+        <% end %>    
     </div>
   </div>
+  <%= link_to "Voir des suggestions", suitcase_interests_path(@suitcase)  %>
 </div>
 
 

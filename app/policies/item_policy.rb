@@ -4,7 +4,7 @@ class ItemPolicy < ApplicationPolicy
       scope.where(user: user)
     end
   end
-  
+
   def new?
     true
   end
