@@ -1,11 +1,12 @@
 <div class="container">
-  <h1>Add a new suitcase. Have a fantastic trip!</h1>
+  <h1>Ajouter une nouvelle valise. Passez le séjour de vos rêves!</h1>
   <%= simple_form_for(@suitcase) do |f| %>
-    <%= f.input :name, placeholder: 'Week-end à la mer' %>
+    <%= f.input :name, placeholder: 'Week-end à la mer', label: "Nom" %>
     <%= f.input :destination, placeholder: 'Barcelone' %>
-    <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"}, placeholder: "2020-08-01" %>
-    <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"}, placeholder: "2020-08-20" %>
+    <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"}, placeholder: "2020-08-01", label: "Départ" %>
+    <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"}, placeholder: "2020-08-20",  label: "Arrivée"%>
     <%= f.input :photo, as: :file %>
-    <%= f.submit %>
+    <%= f.button :submit, "Créer une valise", class: "btn btn-primary" %>
+    <%#= f.submit, "Créer une valise" %>
   <% end %>
 </div>
