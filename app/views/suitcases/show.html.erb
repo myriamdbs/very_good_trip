@@ -18,10 +18,15 @@
   </div>
   <br>
   <div class="row">
-    <div class="col-12" style="display: flex; justify-content: center; align-items: center">
-      <%= link_to "Packed", suitcase_path(@suitcase, filter: :checked), class: "btn btn-success btn-packed" %>
-      <%= link_to "Unpacked", suitcase_path(@suitcase, filter: :unchecked), class: "btn btn-success btn-packed" %>
-      <%= link_to "All", suitcase_path(@suitcase), class: "btn btn-success" %>
+    <div class="col-12" style="display: flex; justify-content: space-between; align-items: center">
+      <div>
+        <%= link_to "Packed", suitcase_path(@suitcase, filter: :checked), class: "btn btn-success btn-packed" %>
+        <%= link_to "Unpacked", suitcase_path(@suitcase, filter: :unchecked), class: "btn btn-success btn-packed" %>
+        <%= link_to "All", suitcase_path(@suitcase), class: "btn btn-success btn-packed" %>
+      </div>
+      <div>
+        <%= link_to "Voir des suggestions", suitcase_interests_path(@suitcase), class: "btn btn-warning" %>
+      </div>
     </div>
   </div>
   
@@ -54,7 +59,7 @@
         <% end %>    
     </div>
   </div>
-  <%= link_to "Voir des suggestions", suitcase_interests_path(@suitcase)  %>
+  
 </div>
 
 
