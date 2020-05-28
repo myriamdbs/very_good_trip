@@ -38,9 +38,9 @@
         <div class="item-wrap">
           <div class="item-packed">
             <%if item.packed %>
-              <% cta = "[x]" %>
+              <% cta = '<i class="fas fa-check-circle"></i>'.html_safe %> 
             <% else %>
-              <% cta = "[ ]" %>
+              <% cta = '<i class="far fa-circle"></i>'.html_safe %>
             <% end %>
             <%= link_to cta, item_tick_path(item), method: :patch, remote: true %>
           </div>
@@ -58,7 +58,7 @@
 </div>
 
 
-
+<i class="fas fa-check-circle"></i>
 
  <%# <li>
         <%= item.name %>
