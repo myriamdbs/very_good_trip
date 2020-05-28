@@ -20,21 +20,18 @@
   </div>
   
   <br>
-  <div class="row"style="margin-top: 200px">
+  <div class="row"style="margin-top: 50px">
     <div class="col-12" style="display: flex; justify-content: center; align-items: center">
       <%= link_to '<i class="fas fa-plus-circle"></i>'.html_safe, new_suitcase_item_path(@suitcase), class: "img-add" %>
     </div>
   </div>
 
   <div class="row" style="margin-top: 20px">
-    <div class="col-12" style="display: flex; justify-content: space-between; align-items: center">
+    <div class="col-12" style="display: flex; justify-content: space-end; align-items: center">
       <div>
         <%= link_to "Emballé", suitcase_path(@suitcase, filter: :checked), class: "btn btn-success btn-packed" %>
         <%= link_to "Pas emballé", suitcase_path(@suitcase, filter: :unchecked), class: "btn btn-success btn-packed" %>
         <%= link_to "Tous", suitcase_path(@suitcase), class: "btn btn-success btn-packed" %>
-      </div>
-      <div>
-        <%= link_to "Voir des suggestions", suitcase_interests_path(@suitcase), class: "btn btn-warning" %>
       </div>
     </div>
   </div>
@@ -67,6 +64,9 @@
         </div>
         <% end %>    
     </div>
+  </div>
+  <div>
+    <%= link_to "Voir des suggestions", suitcase_interests_path(@suitcase), class: "btn btn-warning" %>
   </div>
   
 </div>
