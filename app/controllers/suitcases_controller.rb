@@ -2,7 +2,7 @@ class SuitcasesController < ApplicationController
   before_action :find_suitcase, only: [:show]
 
   def index
-    @suitcases = policy_scope(Suitcase).order(created_at: :desc)
+    @suitcases = policy_scope(Suitcase).order(start_date: :asc)
   end
 
   def new
