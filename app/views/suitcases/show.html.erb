@@ -1,17 +1,27 @@
 <div class="container">
-  <div class="row">
+  
+  <div class="row" style="margin-top: 30px">
     <div class="col-12">
-      <div>
-        <h1><%= @suitcase.name %></h1>
-        <h5><strong>For: </strong><%= @suitcase.destination %></h5>
-        <h5><strong>From: </strong><%= @suitcase.start_date %></h5>
-        <h5><strong>Until: </strong><%= @suitcase.end_date %></h5>
-        <h5>Articles dans ma valise : </h5>
-      </div> 
+      <div class="card" style="width: 18rem;">
+        <%# <img src="#" class="card-img-top" alt="..."> %>
+        <% if @suitcase.photo.attached? %>
+            <%= cl_image_tag @suitcase.photo.key, class: "card-img-top"%>
+        <% else %>
+            <%= cl_image_tag ("waves_vacation_omfcsd.png"), class: "card-img-top" %>
+        <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= @suitcase.name %></h5>
+            <p class="card-text"><span><strong>Destination</strong></span> : <%= @suitcase.destination %></p>
+            <p class="card-text"><span><strong>Arrivée</strong></span> : <%= @suitcase.start_date %></p>
+            <p class="card-text"><span><strong>Départ</strong></span> : <%= @suitcase.end_date %></p>
+          </div>
+      </div>
     </div>
   </div>
+  
+  
   <br>
-  <div class="row"> 
+  <div class="row" style="margin-top: 200px"> 
     <div class="col-12" style="display: flex; justify-content: center; align-items: center">
       <%= link_to '<i class="fas fa-plus-circle"></i>'.html_safe, new_suitcase_item_path(@suitcase), class: "img-add" %>
     </div>
