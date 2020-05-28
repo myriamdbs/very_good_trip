@@ -1,11 +1,29 @@
-<div class="container">
-    <h1 class="text-center">Welcome to Very Good Trip</h1>
-    <div class="row">
-        <div style="margin: 0 auto">
-            <img src="https://pbs.twimg.com/profile_images/780721610269556736/d_LJDLZt_400x400.jpg" alt="">
-        </div>
-    </div>
+<div class="home-banner">
+  <div class="banner-content text-center">
+    <h1 id="home-title">Faire sa valise en toute sérénité</h1>
+    <%= link_to "Commencer", suitcases_path, class: "btn btn-primary"  %>
+  </div>
 </div>
 
+<div class="container text-center">
+  <div class="home-card row mx-3">
+    <div class="col mb-2">
+      <h4 class="title-primary"><i class="fas fa-hourglass-half"></i> Gagnez du temps</h4>
+      <p>grâce aux suggestions clé-en-main pour préparer votre valise</p>
+    </div>
+  </div>
+  <div class="home-card row m-3">
+    <div class="col">
+      <h4 class="title-primary"><i class="fas fa-history"></i> Sauvegardez vos valises</h4>
+      <p>et réutiliser-les lors de vos prochains voyages</p>
+    </div>
+  </div>
+  <div class="home-card row m-3">
+    <div class="col">
+      <h4 class="title-primary"><i class="fab fa-slideshare"></i> Partagez</h4>
+      <p>votre valise avec vos compagnon de voyage</p>
+    </div>
+  </div>
 
 
+</div>

@@ -1,0 +1,19 @@
+.home-banner {
+  height: 75vh;
+  margin-bottom: 4vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), image-url("background-home-v1.jpg");
+}
+
+.banner-content {
+  color: white;
+  text-shadow: #615D74 1px 0 8px;
+}
+
+#home-title {
+  margin-bottom:40vh;
+}
