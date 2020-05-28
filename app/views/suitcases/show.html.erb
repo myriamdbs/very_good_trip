@@ -19,15 +19,14 @@
     </div>
   </div>
   
-  
   <br>
-  <div class="row" style="margin-top: 200px"> 
+  <div class="row"style="margin-top: 200px">
     <div class="col-12" style="display: flex; justify-content: center; align-items: center">
       <%= link_to '<i class="fas fa-plus-circle"></i>'.html_safe, new_suitcase_item_path(@suitcase), class: "img-add" %>
     </div>
   </div>
-  <br>
-  <div class="row">
+
+  <div class="row" style="margin-top: 20px">
     <div class="col-12" style="display: flex; justify-content: space-between; align-items: center">
       <div>
         <%= link_to "Packed", suitcase_path(@suitcase, filter: :checked), class: "btn btn-success btn-packed" %>
