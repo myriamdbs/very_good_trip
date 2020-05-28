@@ -1,53 +1,47 @@
 <div class="container">
+  <%= link_to "Ajouter une nouvelle valise", new_suitcase_path, class: "btn btn-success" %><br><br>
   <h1>Mes valises à venir</h1>
   <br>
-  <div class="row">
-    <% @suitcases.each do |suitcase|%>
-      <% if suitcase.end_date > Date.today %>
-         <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
-            <div class="card">
-              <div class="card-index-photo">
-                <% if suitcase.photo.attached? %>
-                  <%= cl_image_tag suitcase.photo.key, height: 125, width: 375, crop: :fill %>
-                <% else %>
-                  <%= cl_image_tag ("waves_vacation_omfcsd.png"), height: 125, width: 375, crop: :fill %>
-                <% end %>
-              </div>
-             <div class="card-body">
-               <h3 class="card-title"><%= suitcase.name %></h3>
-               <h6 class="card-title"><strong>Ma valise pour</strong> <%= suitcase.destination %></h6>
-               <%= link_to "Accéder à ma valise", suitcase_path(suitcase)  %>
-             </div>
-            </div>
-            <br>
-        </div>
+  <% @suitcases.each do |suitcase|%>
+    <% if suitcase.end_date >= Date.today %>
+      <% if suitcase.photo.attached? %>
+        <%= link_to suitcase_path(suitcase) do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path suitcase.photo.key %>)">
+            <h3><%= suitcase.name %></h3>
+            <h6>Ma valise pour <strong><%= suitcase.destination %></strong></h6>
+          </div>
+        <% end %>
+      <% else %>
+        <%= link_to suitcase_path(suitcase) do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path("waves_vacation_omfcsd.png") %>)">
+            <h3><%= suitcase.name %></h3>
+            <h6>Ma valise pour <strong><%= suitcase.destination %></strong></h6>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
-  </div>
+  <% end %>
   <h1>Mes valises passées</h1>
   <br>
-  <div class="row">
-    <% @suitcases.each do |suitcase|%>
-      <% if suitcase.end_date < Date.today %>
-        <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
-          <div class="card">
-            <div class="card-index-photo">
-              <% if suitcase.photo.attached? %>
-                <%= cl_image_tag suitcase.photo.key, height: 125, width: 375, crop: :fill %>
-              <% else %>
-                <%= cl_image_tag ("waves_vacation_omfcsd.png"), height: 125, width: 375, crop: :fill %>
-              <% end %>
-            </div>
-            <div class="card-body">
-              <h3 class="card-title"><%= suitcase.name %></h3>
-              <h6 class="card-title"><strong>Ma valise pour</strong> <%= suitcase.destination %></h6>
-              <%= link_to "Accéder à ma valise", suitcase_path(suitcase) %>
-            </div>
+  <% @suitcases.each do |suitcase|%>
+    <% if suitcase.end_date <= Date.today %>
+      <% if suitcase.photo.attached? %>
+        <%= link_to suitcase_path(suitcase) do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path suitcase.photo.key %>)">
+            <h3><%= suitcase.name %></h3>
+            <h6>Ma valise pour <strong><%= suitcase.destination %></strong></h6>
           </div>
-        </div>
+        <% end %>
+      <% else %>
+        <%= link_to suitcase_path(suitcase) do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path("waves_vacation_omfcsd.png") %>)">
+            <h3><%= suitcase.name %></h3>
+            <h6>Ma valise pour <strong><%= suitcase.destination %></strong></h6>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
-  </div>
+  <% end %>
 </div>
 
 
