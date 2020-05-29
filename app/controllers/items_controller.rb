@@ -14,7 +14,6 @@ class ItemsController < ApplicationController
     user = @suitcase.user
     user = current_user
     if @item.save
-      flash[:notice] = "Your item has been submitted"
       redirect_to suitcase_path(@suitcase)
     else
       @item = Item.new
