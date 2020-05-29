@@ -1,8 +1,30 @@
-<h1>Interest#index</h1>
-<ul>
+<br>
+<h3>Que faire pendant votre voyage ?</h3>
+<br>
+<div class="cards_interests_index">
   <% @interests.each do |interest| %>
-    <li>
-      <%= link_to interest, suitcase_suggestions_path(@suitcase, {interest: interest.name})  %>
-    </li>
+    <div class="card-category-interests">
+      <% if interest.name == "Piscine" %>
+        <%= image_tag ("icons8-natation-40.png") %>
+      <% elsif interest.name == "Plage" %>
+        <%= image_tag ("icons8-plage-40.png") %>
+      <% elsif interest.name == "Fitness" %>
+        <%= image_tag ("icons8-pilates-48.png") %>
+      <% elsif interest.name == "Randonnée" %>
+        <%= image_tag ("icons8-trekking-40.png") %>
+      <% elsif interest.name == "Randonée" %>
+        <%= image_tag ("icons8-trekking-40.png") %>
+      <% elsif interest.name == "Photo" %>
+        <%= image_tag ("icons8-appareil-photo-50.png") %>
+      <% elsif interest.name == "Sport d'hiver" %>
+        <%= image_tag ("icons8-ski-40.png") %>
+      <% end %>
+        <%= link_to interest, suitcase_suggestions_path(@suitcase, {interest: interest.name})  %>
+    </div>
   <% end %>
-</ul>
+</div>
+
+
+
+
+
