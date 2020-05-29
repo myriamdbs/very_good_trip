@@ -2,7 +2,7 @@
   
   <div class="row" style="margin-top: 30px">
     <div class="col-12">
-      <div class="card" style="width: 18rem;">
+      <div class="card" style="width: 100%">
         <%# <img src="#" class="card-img-top" alt="..."> %>
         <% if @suitcase.photo.attached? %>
             <%= cl_image_tag @suitcase.photo.key, class: "card-img-top"%>
@@ -20,14 +20,14 @@
   </div>
   
   <br>
-  <div class="row"style="margin-top: 50px">
-    <div class="col-12" style="display: flex; justify-content: center; align-items: center">
-      <%= link_to '<i class="fas fa-plus-circle"></i>'.html_safe, new_suitcase_item_path(@suitcase), class: "img-add" %>
+  
+    <div>
+      <%= link_to "Ajouter un article dans ma valise", new_suitcase_item_path(@suitcase), class: "btn btn-primary suggestions" %>
     </div>
-  </div>
+  
 
   <div class="row" style="margin-top: 20px">
-    <div class="col-12" style="display: flex; justify-content: space-end; align-items: center">
+    <div class="col-12" style="display: flex; justify-content: center; align-items: center">
       <div>
         <%= link_to "Emballé", suitcase_path(@suitcase, filter: :checked), class: "btn btn-success btn-packed" %>
         <%= link_to "Pas emballé", suitcase_path(@suitcase, filter: :unchecked), class: "btn btn-success btn-packed" %>
@@ -66,7 +66,7 @@
     </div>
   </div>
   <div>
-    <%= link_to "Voir des suggestions", suitcase_interests_path(@suitcase), class: "btn btn-warning" %>
+    <%= link_to "Voir des suggestions", suitcase_interests_path(@suitcase), class: "btn btn-warning suggestions" %>
   </div>
   
 </div>
