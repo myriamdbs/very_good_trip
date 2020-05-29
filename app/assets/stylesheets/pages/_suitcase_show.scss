@@ -21,7 +21,11 @@
     position: absolute;
     top: 15px;
     left: 15px;
-    font-size: 40px;
+    font-size: 30px;
+}
+
+.fa-chevron-left:before {
+    color: white;
 }
 
 .remove-picture {
