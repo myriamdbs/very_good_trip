@@ -1,19 +1,24 @@
-<h1>Element suggérés</h1>
-<ul>
-  <% @suggestions.each do |suggestion| %>
-    <li>
-      <%= suggestion.name %>
-      <% if @suitcase.items.include?(Item.find_by(name: suggestion.name)) %>
-        <%= link_to item_path(Item.find_by(name: suggestion.name)), method: :delete do %>
-          <i class="far fa-minus-square"></i>
-        <% end %>
-      <% else %>
-        <%= link_to suitcase_items_path(@suitcase, params: { suggestion_name: suggestion.name }), method: :post do %>
-          <i class="far fa-plus-square"></i>
-        <% end %>
-      <% end %>
+<div class="container mt-3">
+  <h4 class="text-center mb-2"><%= params[:interest].upcase %></h4>
+  <h5 class="text-center mb-3">Voici les éléments suggérés</h5>
 
-    </li>
+  <% @suggestions.each do |suggestion| %>
+    <div class="card mb-1">
+      <div class="card-body d-flex justify-content-between align-items-center p-3">
+        <% if @suitcase.items.include?(Item.find_by(name: suggestion.name)) %>
+          <div class="item-text-minus"><%= suggestion.name %></div>
+          <%= link_to item_path(Item.find_by(name: suggestion.name)), method: :delete do %>
+            <i class="far fa-minus-square"></i>
+          <% end %>
+        <% else %>
+          <div class="item-text-plus"><%= suggestion.name %></div>
+          <%= link_to suitcase_items_path(@suitcase, params: { suggestion_name: suggestion.name }), method: :post do %>
+            <i class="far fa-plus-square"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
-</ul>
-<%= link_to "Voir ma valise", suitcase_path(@suitcase)  %>
+
+  <%= link_to "Voir ma valise", suitcase_path(@suitcase), class: "btn btn-block btn-primary mt-3 p-2"  %>
+</div>
