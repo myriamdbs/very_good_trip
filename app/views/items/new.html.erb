@@ -1,11 +1,11 @@
-<div class="container bg-white pb-3 px-5 pt-1">
+<div class="container bg-white pb-3 px-2 pt-1">
   <div class="row">
     <div class="col text-center">
       <h2>Ajouter un élément à ma valise</h2>
       <hr>
       <%= simple_form_for [@suitcase, @item] do |f| %>
-        <%= f.input :name, label: "Nom de l'élement", placeholder: "Chaussures de running", input_html: { class: "text-center" }  %>
-        <%= f.submit "Ajouter", class: "btn btn-primary" %>
+        <%= f.input :name, label: "Nom de l'élement :", placeholder: "Chaussures de running", input_html: { class: "text-center" }  %>
+        <%= f.submit "Ajouter", class: "btn btn-primary btn-block" %>
       <% end %>
     </div>
   </div>
