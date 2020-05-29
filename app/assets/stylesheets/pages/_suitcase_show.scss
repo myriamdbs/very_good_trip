@@ -1,3 +1,29 @@
+.card-category-back {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.banner-back {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 40px;
+}
+
 .remove-picture {
     width: 20px;
     height: 20px;
