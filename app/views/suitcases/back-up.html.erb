@@ -1,17 +1,37 @@
 
+<%# <div class="row" style="margin-top: 30px">
+    <div class="col-12"> %>
+      <div class="card" style="width: 100%">
+        <%# <img src="#" class="card-img-top" alt="..."> %>
         <% if @suitcase.photo.attached? %>
-              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_tag @suitcase.photo.key %>)">
-                <h3><%= @suitcase.name %></h3>
-                <h6>Ma valise pour <strong><%= @suitcase.destination %></strong></h6>
-              </div>
+            <%= cl_image_tag @suitcase.photo.key, class: "card-img-top"%>
         <% else %>
-              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path("waves_vacation_omfcsd.png") %>)">
-                <h3><%= @suitcase.name %></h3>
-                <h6>Ma valise pour <strong><%= @suitcase.destination %></strong></h6>
-              </div>
+            <%= cl_image_tag ("waves_vacation_omfcsd.png"), class: "card-img-top" %>
         <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= @suitcase.name %></h5>
+            <p class="card-text"><span><strong>Destination</strong></span> : <%= @suitcase.destination %></p>
+            <p class="card-text"><span><strong>Arrivée</strong></span> : <%= @suitcase.start_date %></p>
+            <p class="card-text"><span><strong>Départ</strong></span> : <%= @suitcase.end_date %></p>
+          </div>
+      </div>
+    <%# </div>
+  </div> %>
 
 
+<% if suitcase.photo.attached? %>
+        <%= link_to suitcase_path(suitcase) do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path suitcase.photo.key %>)">
+            <h3><%= suitcase.name %></h3>
+            <h6>Ma valise pour <strong><%= suitcase.destination %></strong></h6>
+          </div>
+        <% end %>
+      <% else %>
+        <%= link_to suitcase_path(suitcase) do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path("waves_vacation_omfcsd.png") %>)">
+            <h3><%= suitcase.name %></h3>
+            <h6>Ma valise pour <strong><%= suitcase.destination %></strong></h6>
+          </div>
 
 <br>
 
@@ -67,7 +87,3 @@
   </div>
   
 </div>
-
-
-
-
