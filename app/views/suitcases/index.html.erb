@@ -1,7 +1,5 @@
 <div class="container">
   <br>
-  <%= link_to "Ajouter une nouvelle valise", new_suitcase_path, class: "btn btn-success btn-block" %>
-  <br>
   <h2>Mes valises à venir</h2>
   <br>
   <% @suitcases.each do |suitcase|%>
@@ -23,6 +21,12 @@
       <% end %>
     <% end %>
   <% end %>
+  <%= link_to new_suitcase_path do %>
+          <div class="card-category-add-suitcase-button">
+            <h1 class="suitcase-cta-new">+</h1>
+            <h5 class="suitcase-cta-new">ajouter une nouvelle valise</h5>
+          </div>
+        <% end %>
   <h2>Mes valises passées</h2>
   <br>
   <% @suitcases.each do |suitcase|%>
