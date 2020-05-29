@@ -1,6 +1,6 @@
 
         <% if @suitcase.photo.attached? %>
-              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_tag @suitcase.photo.key %>)">
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @suitcase.photo.key %>)">
                 <h3><%= @suitcase.name %></h3>
                 <h6>Ma valise pour <strong><%= @suitcase.destination %></strong></h6>
               </div>
