@@ -1,72 +1,55 @@
-
-        <% if @suitcase.photo.attached? %>
-              <div class="card-category-back" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @suitcase.photo.key %>)">
-                <%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, suitcases_path, class: "banner-back" %>
-                <h3><%= @suitcase.name %></h3>
-                <h6>Ma valise pour <strong><%= @suitcase.destination %></strong></h6>
-              </div>
-        <% else %>
-              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path("waves_vacation_omfcsd.png") %>)">
-                <h3><%= @suitcase.name %></h3>
-                <h6>Ma valise pour <strong><%= @suitcase.destination %></strong></h6>
-              </div>
-        <% end %>
+<% if @suitcase.photo.attached? %>
+  <div class="card-category-back" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @suitcase.photo.key %>)">
+    <%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, suitcases_path, class: "banner-back" %>
+    <h3><%= @suitcase.name %></h3>
+    <h6>Ma valise pour <strong><%= @suitcase.destination %></strong></h6>
+  </div>
+<% else %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path("waves_vacation_omfcsd.png") %>)">
+    <h3><%= @suitcase.name %></h3>
+    <h6>Ma valise pour <strong><%= @suitcase.destination %></strong></h6>
+  </div>
+<% end %>
 
 <br>
 
 <div class="container">
-  
-
-    <div>
-      <%= link_to "Ajouter un article dans ma valise", new_suitcase_item_path(@suitcase), class: "btn btn-primary suggestions" %>
-    </div>
-  
-
+  <div>
+    <%= link_to "Ajouter un article dans ma valise", new_suitcase_item_path(@suitcase), class: "btn btn-primary suggestions" %>
+  </div>
   <div class="row" style="margin-top: 20px">
     <div class="col-12" style="display: flex; justify-content: center; align-items: center">
       <div>
-        <%= link_to "Emballé", suitcase_path(@suitcase, filter: :checked), class: "btn btn-success btn-packed" %>
-        <%= link_to "Pas emballé", suitcase_path(@suitcase, filter: :unchecked), class: "btn btn-success btn-packed" %>
-        <%= link_to "Tous", suitcase_path(@suitcase), class: "btn btn-success btn-packed" %>
+        <%= link_to "Emballés", suitcase_path(@suitcase, filter: :checked), class: "py-1 px-2 mr-2 #{params[:filter] == "checked" ? "btn-checked" : "btn-ghost"}" %>
+        <%= link_to "Pas emballés", suitcase_path(@suitcase, filter: :unchecked), class: "py-1 px-2 mr-2 #{params[:filter] == "unchecked" ? "btn-checked" : "btn-ghost"}" %>
+        <%= link_to "Tous", suitcase_path(@suitcase), class: "btn-ghost py-1 px-2 mr-2 #{"btn-checked" if params[:filter].nil? == true }" %>
       </div>
     </div>
   </div>
-  
-
-   <br>
-  <%#= form_tag suitcase_path(@suitcase), method: :get do %>
-      <%#= check_box_tag 'checked' %>
-      <%#= submit_tag "Filtrer", class: "btn btn-primary" %>
-  <%# end %>
-    
+  <br>
   <div class="row">
     <div class="col-12">
-        <% @items.each do |item| %>
-        <div class="item-wrap">
-          <div class="item-packed">
-            <%if item.packed %>
-              <% cta = '<i class="fas fa-check-circle"></i>'.html_safe %> 
-            <% else %>
-              <% cta = '<i class="far fa-circle"></i>'.html_safe %>
-            <% end %>
-            <%= link_to cta, item_tick_path(item), method: :patch, remote: true %>
-          </div>
-          <div class="item-name">
-            <strong><%= item.name %></strong>
-          </div>  
-          <div class="item-remove">
-            <%= link_to image_tag("rubbish.png", class: "remove-picture"), item_path(item), method: :delete, data: { confirm: "Are you sure?" } %>
-          </div>
+      <% @items.each do |item| %>
+      <div class="item-wrap">
+        <div class="item-packed">
+          <%if item.packed %>
+            <% cta = '<i class="fas fa-check-circle"></i>'.html_safe %>
+          <% else %>
+            <% cta = '<i class="far fa-circle"></i>'.html_safe %>
+          <% end %>
+          <%= link_to cta, item_tick_path(item), method: :patch, remote: true %>
         </div>
-        <% end %>    
+        <div class="item-name">
+          <strong><%= item.name %></strong>
+        </div>
+        <div class="item-remove">
+          <%= link_to image_tag("rubbish.png", class: "remove-picture"), item_path(item), method: :delete, data: { confirm: "Are you sure?" } %>
+        </div>
+      </div>
+      <% end %>
     </div>
   </div>
-  <div>
-    <%= link_to "Voir des suggestions", suitcase_interests_path(@suitcase), class: "btn btn-warning suggestions" %>
+  <div class="fixed-bottom">
+    <%= link_to "Voir des suggestions", suitcase_interests_path(@suitcase), class: "btn btn-warning py-2 mt-3 suggestions" %>
   </div>
-  
 </div>
-
-
-
-

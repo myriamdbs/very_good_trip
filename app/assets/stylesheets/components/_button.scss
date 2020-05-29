@@ -3,3 +3,25 @@
   text-shadow: #007797 1px 0 8px;
   font-size: larger;
 }
+
+.btn-ghost {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-checked {
+  color: #4A4A4A;
+  opacity: 1;
+  border: 1px solid #4A4A4A;
+  border-radius: 50px;
+  transition: opacity 0.3s ease;
+}
+
+.btn-warning {
+  color: 615D74;
+  font-size: larger;
+}
