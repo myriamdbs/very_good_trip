@@ -7,15 +7,16 @@ class MembersController < ApplicationController
 
   def create
     @member = Member.new
-    @usermail = params["Email"]
+    @usermail = params[:member][:email]
     @member.user_id = User.find_by(email: @usermail).id
     @suitcase = Suitcase.find(params[:suitcase_id])
     @member.suitcase = @suitcase
     authorize @member
     if @member.save
-      render :new
+      redirect_to new_suitcase_member_path(@suitcase)
     else
-      redirect_to suitcase_path(@suitcase)
+      flash[:alert] = "#{@member.errors.messages[:user_id].first}"
+      render :new
     end
   end
 end

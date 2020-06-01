@@ -1,11 +1,13 @@
 <h1>Ajoutez des compagnons de voyage</h1>
 
-<%= form_tag suitcase_members_path, method: :post do %>
- <label for="Email">Email :</label>
- <input type="text" name="Email">
- <%= submit_tag "Ajouter", class: "btn btn-primary" %>
+<%= simple_form_for [@suitcase, @member] do |f| %>
+  <%= f.input :email %>
+  <%= f.submit "Ajouter" %>
 <% end %>
-<%= @suitcase.members %>
+
+<% @suitcase.member_users.each do |user| %>
+  <%= user.first_name %>
+<% end %>
 
 <%= link_to "Voir ma valise", suitcase_path(@suitcase), class: 'btn btn-primary' %>
 
