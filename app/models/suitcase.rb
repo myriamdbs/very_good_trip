@@ -1,6 +1,6 @@
 class Suitcase < ApplicationRecord
   belongs_to :user
-  has_many :members
+  has_many :members, dependent: :destroy
   has_many :items, dependent: :destroy
   validates :destination, presence: true
   validates :start_date, presence: true
