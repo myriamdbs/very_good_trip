@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :suitcases
   has_many :items, through: :suitcases
+  has_many :members
 end
