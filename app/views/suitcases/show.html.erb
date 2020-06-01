@@ -41,7 +41,7 @@
               <% cta = '<i class="far fa-circle"></i>'.html_safe %>
             <% end %>
             <%= link_to cta, item_tick_path(item), method: :patch, remote: true %>
-            <strong><%= item.name.capitalize %></strong>
+            <strong><span style="color: white;">o</span><%= item.name.capitalize %></strong>
           </div>
         
         <%# class="item-name" %>
