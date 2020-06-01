@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'members/new'
   get 'categories/index'
   devise_for :users
   root to: 'pages#home'
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
     resources :items, only: [:new, :create]
     resources :interests, only: [:index]
     resources :suggestions, only: [:index]
+    resources :members, only: [:new, :create]
   end
   resources :items, only: [:destroy] do
     resource :tick, only: [:update]

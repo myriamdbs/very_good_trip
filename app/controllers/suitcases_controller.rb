@@ -16,7 +16,12 @@ class SuitcasesController < ApplicationController
     authorize @suitcase
     if @suitcase.save
       add_essential_items
-      redirect_to suitcase_path(@suitcase)
+      if @suitcase.shared
+        Member.create(suitcase: @suitcase, user: current_user)
+        redirect_to new_suitcase_member_path(@suitcase)
+      else
+        redirect_to suitcase_path(@suitcase)
+      end
     else
       render :new
     end
@@ -24,7 +29,7 @@ class SuitcasesController < ApplicationController
 
   def show
     authorize @suitcase
-   @items =  case params["filter"]
+    @items =  case params["filter"]
     when "checked"
       @checked = true
       @suitcase.items.packed
@@ -43,7 +48,7 @@ private
   end
 
   def suitcase_params
-    params.require(:suitcase).permit(:name, :destination, :start_date, :end_date, :shared, :user, :photo)
+    params.require(:suitcase).permit(:name, :destination, :start_date, :end_date, :shared, :user, :photo, :member)
   end
 
   def add_essential_items
