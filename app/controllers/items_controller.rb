@@ -17,6 +17,7 @@ class ItemsController < ApplicationController
       redirect_to suitcase_path(@suitcase)
     else
       @item = Item.new
+      @items = @suitcase.items
       render "suitcases/show"
     end
   end

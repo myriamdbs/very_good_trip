@@ -28,7 +28,7 @@ class SuitcasesController < ApplicationController
 
   def show
     authorize @suitcase
-   @items =  case params["filter"]
+    @items =  case params["filter"]
     when "checked"
       @suitcase.items.packed
     when "unchecked"

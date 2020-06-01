@@ -5,6 +5,7 @@
  <input type="text" name="Email">
  <%= submit_tag "Ajouter", class: "btn btn-primary" %>
 <% end %>
+<%= @suitcase.members %>
 
 <%= link_to "Voir ma valise", suitcase_path(@suitcase), class: 'btn btn-primary' %>
 
