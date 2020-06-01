@@ -9,10 +9,10 @@ class ItemsController < ApplicationController
   def create
     @suitcase = Suitcase.find(params[:suitcase_id])
     @item = Item.new(item_params)
-    authorize @item
+    @member = @suitcase.members.find_by(user_id: params[:item][:user_in_charge])
+    @item.member = @member
     @item.suitcase = @suitcase
-    user = @suitcase.user
-    user = current_user
+    authorize @item
     if @item.save
       redirect_to suitcase_path(@suitcase)
     else
@@ -34,7 +34,7 @@ private
     if params[:suggestion_name]
       return { name: params[:suggestion_name] }
     else
-      params.require(:item).permit(:name)
+      params.require(:item).permit(:name, :shared)
     end
   end
 end

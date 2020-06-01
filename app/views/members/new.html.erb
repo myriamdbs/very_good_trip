@@ -1,0 +1,11 @@
+<h1>Ajoutez des compagnons de voyage</h1>
+
+<%= form_tag suitcase_members_path, method: :post do %>
+ <label for="Email">Email :</label>
+ <input type="text" name="Email">
+ <%= submit_tag "Ajouter", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to "Voir ma valise", suitcase_path(@suitcase), class: 'btn btn-primary' %>
+
+

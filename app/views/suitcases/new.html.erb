@@ -6,6 +6,7 @@
     <%= f.input :start_date, as: :string, input_html: {class: "datepicker"}, placeholder: "2020-08-01", label: "Départ" %>
     <%= f.input :end_date, as: :string, input_html: {class: "datepicker"}, placeholder: "2020-08-20",  label: "Arrivée"%>
     <%= f.input :photo, as: :file %>
+    <%= f.input :shared, label: "Est-ce que je veux partager ma valise avec des compagnons ?", as: :radio_buttons %>
     <%= f.button :submit, "Créer une valise", class: "btn btn-primary" %>
     <%#= f.submit, "Créer une valise" %>
   <% end %>
