@@ -12,13 +12,16 @@
 <div class="container">
   <% if @suitcase.photo.attached? %>
     <div style=" display:flex; align-items: center; padding-top: 15px">
-      <div class="show-avatar" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @suitcase.photo.key %>)"></div>
-      <div style="margin-left: 15px"><h3><%= @suitcase.name %></h3></div>
+      <%= image_tag (cl_image_path @suitcase.photo.key), class: "avatar-large", alt: "avatar-large" %>
+      <div>
+        <div style="margin-left: 15px"><h3><%= @suitcase.name %></h3></div>
+        <div style="margin-left: 15px"><strong><%= @suitcase.destination %></strong></h6></div>
+      </div>
     </div>
-    <div><strong><%= @suitcase.destination %></strong></h6></div>
+    
   <% else %>
     <div style=" display:flex; align-items: center; padding-top: 15px">
-      <div class="show-avatar" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path("waves_vacation_omfcsd.png") %>)"></div>
+      <%= image_tag (cl_image_path("waves_vacation_omfcsd.png")), class: "avatar-large", alt: "avatar-large" %>
       <div style="margin-left: 15px"><h3><%= @suitcase.name %></h3></div>
     </div>
     <div><strong><%= @suitcase.destination %></strong></h6></div>
@@ -27,7 +30,7 @@
 <br>
 <div class="container">
   <div class="row" >
-    <div class="col-12" style="display: flex; justify-content: center; align-items: center">
+    <div class="col-12" style="display: flex; justify-content: start; align-items: center">
       <div>
         <%= link_to "Emballés", suitcase_path(@suitcase, filter: @checked ? "" : :checked), class: "py-1 px-2 mr-2 #{params[:filter] == "checked" ? "btn-checked" : "btn-ghost"}" %>
         <%= link_to "Pas emballés", suitcase_path(@suitcase, filter: @unchecked ? "" : :unchecked), class: "py-1 px-2 mr-2 #{params[:filter] == "unchecked" ? "btn-checked" : "btn-ghost"}" %>
@@ -52,8 +55,8 @@
           </div>
 
         <%# class="item-name" %>
-        <div class="item-remove">
-          <%= link_to image_tag("rubbish.png", class: "remove-picture"), item_path(item), method: :delete, data: { confirm: "Are you sure?" } %>
+        <div>
+          <%= link_to "x", item_path(item), method: :delete, data: { confirm: "Are you sure?" }, class: "x-form" %>
         </div>
       </div>
       <% end %>
