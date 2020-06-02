@@ -7,7 +7,7 @@
 
 <div class="container">
   <% if @suitcase.photo.attached? %>
-    <div style=" display:flex; align-items: center">
+    <div style=" display:flex; align-items: center; padding-top: 15px">
       <div class="show-avatar" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @suitcase.photo.key %>)"></div>
       <div style="margin-left: 15px"><h3><%= @suitcase.name %></h3></div>
     </div>
