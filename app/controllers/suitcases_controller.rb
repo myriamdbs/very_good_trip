@@ -36,6 +36,9 @@ class SuitcasesController < ApplicationController
     when "unchecked"
       @unchecked = true
       @suitcase.items.unpacked
+    when "shared"
+      @shared = true
+      @suitcase.items.shared
     else
       @suitcase.items
     end
