@@ -71,19 +71,6 @@ items.each do |item, interests|
   suggestion.save!
 end
 
-# interests = {
-#   "piscine" => ["maillot", "serviette"],
-#   "plage" => ["maillot", "serviette", "tongs"]
-# }
-
-# interests.each do |interest, suggestions|
-#   suggestions.each do |suggestion_name|
-#     suggestion = Suggestion.create!(name: suggestion_name)
-#     suggestion.tag_list.add(interest)
-#     suggestion.save!
-#   end
-# end
-
 item1 = Item.new(name:"Brosse à dents", suitcase:suitcase1)
 item1.save
 item2 = Item.new(name:"Dentifrice", suitcase:suitcase2)

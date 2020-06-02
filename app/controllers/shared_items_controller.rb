@@ -1,4 +1,4 @@
-class ItemSharedController < ApplicationController
+class SharedItemsController < ApplicationController
   def new
     @suitcase = Suitcase.find(params[:suitcase_id])
     @item = Item.new
@@ -13,7 +13,7 @@ class ItemSharedController < ApplicationController
     @item.suitcase = @suitcase
     authorize @item
     if @item.save
-      redirect_to new_suitcase_item_path(@suitcase)
+      redirect_to new_suitcase_shared_item_path(@suitcase)
       flash[:alert] = "#{@item.name.capitalize} a été ajouté"
     else
       @item = Item.new

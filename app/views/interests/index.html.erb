@@ -5,8 +5,8 @@
   <div class="cards_interests_index">
     <% @interests.each do |interest| %>
       <div class="card-category-interests">
-        <%= image_tag ("#{interest.name}.png") %>
-        <%= link_to interest, suitcase_suggestions_path(@suitcase, {interest: interest.name})  %>
+        <%= image_tag ("#{interest.name.capitalize}.png") %>
+        <%= link_to interest, suitcase_suggestions_path(@suitcase, {interest: interest.name.capitalize})  %>
       </div>
     <% end %>
   </div>
