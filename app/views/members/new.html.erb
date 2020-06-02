@@ -1,14 +1,27 @@
-<h1>Ajoutez des compagnons de voyage</h1>
+<div class="container mt-3 text-center bg-white">
+  <div class="row mb-5">
+    <div class="col">
+      <h1>Ajoutez des compagnons de voyage</h1>
 
-<%= simple_form_for [@suitcase, @member] do |f| %>
-  <%= f.input :email %>
-  <%= f.submit "Ajouter" %>
-<% end %>
-
-<% @suitcase.member_users.each do |user| %>
-  <%= user.first_name %>
-<% end %>
-
-<%= link_to "Voir ma valise", suitcase_path(@suitcase), class: 'btn btn-primary' %>
-
-
+      <%= simple_form_for [@suitcase, @member] do |f| %>
+        <%= f.input :email %>
+        <%= f.submit "Ajouter", class: "btn btn-primary btn-block" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row mb-5">
+    <div class="col">
+      <h5>Les compagnons de cette valise :</h5>
+      <ul class="companion-list">
+        <% @suitcase.member_users.each do |user| %>
+          <li><i class="fas fa-user"></i><%= user.first_name.capitalize %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="row mb-5">
+    <div class="col">
+      <%= link_to "Voir ma valise", suitcase_path(@suitcase), class: 'btn btn-dark m-3 py-2 fixed-bottom' %>
+    </div>
+  </div>
+</div>

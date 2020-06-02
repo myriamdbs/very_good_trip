@@ -6,4 +6,5 @@ class Item < ApplicationRecord
   scope :packed, -> { where(packed: true) }
   scope :unpacked, -> { where(packed: false) }
   scope :shared, -> { where(shared: true) }
+  validates :name, presence: true
 end
