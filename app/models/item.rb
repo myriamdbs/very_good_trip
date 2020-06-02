@@ -5,4 +5,5 @@ class Item < ApplicationRecord
   default_scope { order(created_at: :desc)}
   scope :packed, -> { where(packed: true) }
   scope :unpacked, -> { where(packed: false) }
+  validates :name, presence: true
 end
