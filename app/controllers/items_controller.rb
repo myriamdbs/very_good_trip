@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
     @item.suitcase = @suitcase
     authorize @item
     if @item.save
-      redirect_to new_suitcase_item_path(@suitcase)
+      redirect_to suitcase_path(@suitcase)
       flash[:alert] = "#{@item.name.capitalize} a été ajouté"
     else
       render :new

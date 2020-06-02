@@ -4,10 +4,10 @@ const toggleChoiceInNewItemForm = () => {
   const radioButtonYes = document.querySelector("#item_shared_true");
   if (radioButton && formToHide) {
     radioButton.addEventListener("change", (event) => {
-      formToHide.classList.toggle("d-none");
+      formToHide.classList.add("d-none");
     });
     radioButtonYes.addEventListener("change", (event) => {
-      formToHide.classList.toggle("d-none");
+      formToHide.classList.remove("d-none");
     });
   }
 };

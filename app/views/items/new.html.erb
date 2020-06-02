@@ -1,12 +1,12 @@
 <div class="container bg-white pb-3 px-2 pt-1">
   <div class="row">
     <div class="col text-center">
-      <h2>Ajouter un élément à ma valise</h2>
+      <h3>Ajouter un article à ma valise</h3>
       <hr>
         <%= simple_form_for [@suitcase, @item] do |f| %>
           <% if @suitcase.shared %>
-            <%= f.input :shared, as: :radio_buttons %>
-            <%= f.input :user_in_charge, collection: @suitcase.member_users.map { |user| [user.first_name, user.id] } %>
+            <%= f.input :shared, label: "Partagé ?", as: :radio_buttons %>
+            <%= f.input :user_in_charge, label: "Article apporté par: ", collection: @suitcase.member_users.map { |user| [user.first_name, user.id] } %>
             <%= f.input :name, label: "Nom de l'élement :", placeholder: "Chaussures de running", input_html: { class: "text-center" }  %>
             <%= f.submit "Ajouter", class: "btn btn-primary btn-block" %>
           <% else %>
@@ -15,11 +15,8 @@
           <% end %>
         <% end %>
         <br>
-        <br>
-        <h2>Trouver l'inspiration</h2>
-          <br>
-          <%= link_to "Voir les suggestions", suitcase_interests_path, class: "btn btn-primary btn-block" %>
-          <%= link_to "Voir ma valise", suitcase_path(@suitcase), class: 'btn btn-dark m-3 py-2' %>
+          <%= link_to "Voir les suggestions", suitcase_interests_path, class: "btn btn-success btn-block" %>
+          <%= link_to "Retour à ma valise", suitcase_path(@suitcase), class: 'btn btn-dark m-3 py-2' %>
     </div>
   </div>
 </div>
