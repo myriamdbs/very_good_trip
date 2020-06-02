@@ -3,21 +3,24 @@
 </div>
 
 
-<% if @suitcase.photo.attached? %>
-  <div class="card-category-back" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @suitcase.photo.key %>)">
-    <%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, suitcases_path, class: "banner-back" %>
-    <h3><%= @suitcase.name %></h3>
-    <h6>Ma valise pour <strong><%= @suitcase.destination %></strong></h6>
-  </div>
-<% else %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path("waves_vacation_omfcsd.png") %>)">
-    <h3><%= @suitcase.name %></h3>
-    <h6>Ma valise pour <strong><%= @suitcase.destination %></strong></h6>
-  </div>
-<% end %>
 
+
+<div class="container">
+  <% if @suitcase.photo.attached? %>
+    <div style=" display:flex; align-items: center">
+      <div class="show-avatar" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @suitcase.photo.key %>)"></div>
+      <div style="margin-left: 15px"><h3><%= @suitcase.name %></h3></div>
+    </div>
+    <div><strong><%= @suitcase.destination %></strong></h6></div>
+  <% else %>
+    <div style=" display:flex; align-items: center">  
+      <div class="show-avatar" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path("waves_vacation_omfcsd.png") %>)"></div>
+      <div style="margin-left: 15px"><h3><%= @suitcase.name %></h3></div>    
+    </div>
+    <div><strong><%= @suitcase.destination %></strong></h6></div>
+  <% end %>
+</div>
 <br>
-
 <div class="container">
   <div class="row" >
     <div class="col-12" style="display: flex; justify-content: center; align-items: center">
