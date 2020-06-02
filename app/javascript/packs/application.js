@@ -27,6 +27,7 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { previewImageOnFileSelect } from '../components/photo_preview'
 import { initAutocomplete } from "../plugins/init_autocomplete";
 import flatpickr from "flatpickr";
 import { toggleChoiceInNewItemForm } from "../components/toggle_choice_in_new_item_form";
@@ -34,7 +35,7 @@ import { toggleChoiceInNewItemForm } from "../components/toggle_choice_in_new_it
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  initAutocomplete()
+  initAutocomplete();
   flatpickr(".datepicker", {});
   toggleChoiceInNewItemForm();
 });
