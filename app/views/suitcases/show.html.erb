@@ -27,7 +27,7 @@
       <div>
         <%= link_to "Emballés", suitcase_path(@suitcase, filter: @checked ? "" : :checked), class: "py-1 px-2 mr-2 #{params[:filter] == "checked" ? "btn-checked" : "btn-ghost"}" %>
         <%= link_to "Pas emballés", suitcase_path(@suitcase, filter: @unchecked ? "" : :unchecked), class: "py-1 px-2 mr-2 #{params[:filter] == "unchecked" ? "btn-checked" : "btn-ghost"}" %>
-        <%= link_to "...", suitcase_path(@suitcase), class: "btn-ghost py-1 px-2 mr-2 #{"btn-checked" if params[:filter].nil? == true }" %>
+        <%= link_to "Partagés", suitcase_path(@suitcase, filter: @shared ? "" : :shared), class: "py-1 px-2 mr-2 #{params[:filter] == "shared" ? "btn-checked" : "btn-ghost"}" %>
       </div>
     </div>
   </div>
