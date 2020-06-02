@@ -87,3 +87,29 @@
   </div>
   
 </div>
+
+
+
+
+
+<% if @suitcase.photo.attached? %>
+  <div class="card-category-back" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @suitcase.photo.key %>)">
+    <%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, suitcases_path, class: "banner-back" %>
+    <h3><%= @suitcase.name %></h3>
+    <h6>Ma valise pour <strong><%= @suitcase.destination %></strong></h6>
+  </div>
+
+<% else %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path("waves_vacation_omfcsd.png") %>)">
+    <h3><%= @suitcase.name %></h3>
+    <h6>Ma valise pour <strong><%= @suitcase.destination %></strong></h6>
+  </div>
+<% end %>
+
+
+
+<div>
+        <%= link_to "Emballés", suitcase_path(@suitcase, filter: @checked ? "" : :checked), class: "py-1 px-2 mr-2 #{params[:filter] == "checked" ? "btn-checked" : "btn-ghost"}" %>
+        <%= link_to "Pas emballés", suitcase_path(@suitcase, filter: @unchecked ? "" : :unchecked), class: "py-1 px-2 mr-2 #{params[:filter] == "unchecked" ? "btn-checked" : "btn-ghost"}" %>
+        <%= link_to "Partagés", suitcase_path(@suitcase), class: "btn-ghost py-1 px-2 mr-2 #{"btn-checked" if params[:filter].nil? == true }" %>
+      </div>
