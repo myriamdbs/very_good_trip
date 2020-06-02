@@ -13,12 +13,10 @@ class SharedItemsController < ApplicationController
     @item.suitcase = @suitcase
     authorize @item
     if @item.save
-      redirect_to new_suitcase_shared_item_path(@suitcase)
+      redirect_to suitcase_path(@suitcase)
       flash[:alert] = "#{@item.name.capitalize} a été ajouté"
     else
-      @item = Item.new
-      @items = @suitcase.items
-      render "suitcases/show"
+      render :new
     end
   end
 
