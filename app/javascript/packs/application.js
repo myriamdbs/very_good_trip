@@ -38,4 +38,5 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   flatpickr(".datepicker", {});
   toggleChoiceInNewItemForm();
+  previewImageOnFileSelect();
 });
