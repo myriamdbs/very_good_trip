@@ -55,8 +55,8 @@
           </div>
 
         <%# class="item-name" %>
-        <div class="item-remove">
-          <%= link_to image_tag("rubbish.png", class: "remove-picture"), item_path(item), method: :delete, data: { confirm: "Are you sure?" } %>
+        <div>
+          <%= link_to "x", item_path(item), method: :delete, data: { confirm: "Are you sure?" }, class: "x-form" %>
         </div>
       </div>
       <% end %>
