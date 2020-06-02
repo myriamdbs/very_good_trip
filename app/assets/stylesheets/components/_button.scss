@@ -30,3 +30,17 @@
   opacity: 0.9;
   font-size: larger;
 }
+
+.btn-circle-plus {
+  font-size: 60px;
+  padding: 3px 30px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 35px;
+  right:30px;
+  z-index: 2;
+}
+
+.btn-circle-plus a{
+  color: white;
+}

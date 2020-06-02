@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :suitcases, only: [:index, :new, :show, :create] do
     resources :items, only: [:new, :create]
-    resources :items_shared, only: [:new, :create]
+    resources :shared_items, only: [:new, :create]
     resources :interests, only: [:index]
     resources :suggestions, only: [:index]
     resources :members, only: [:new, :create]
