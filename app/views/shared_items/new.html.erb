@@ -3,7 +3,7 @@
     <div class="col text-center">
       <h3>Ajouter un article à ma valise</h3>
       <hr>
-        <%= simple_form_for [@suitcase, @item] do |f| %>
+        <%= simple_form_for [@suitcase, @item], url: suitcase_shared_items_path, method: :post do |f| %>
           <% if @suitcase.shared %>
             <div class="custom-control custom-switch px-3">
               <%= f.input :shared, as: :boolean, label: "Partagé", input_html: { class: "custom-control-input"}, label_html: { class: "custom-control-label" } %>
