@@ -1,26 +1,37 @@
-<div class="container bg-white pb-3 px-2 pt-1">
+<div class="container pb-3 px-2 pt-1">
   <div class="row">
     <div class="col text-center">
-      <h3>Ajouter un article à ma valise</h3>
-      <hr>
+      <br>
+      <h3>Ajouter un article</h3>
+      <br>
         <%= simple_form_for [@suitcase, @item], url: suitcase_shared_items_path, method: :post do |f| %>
           <% if @suitcase.shared %>
+            <%= f.input :name, label: "Nom :", placeholder: "Chaussures de running", input_html: { class: "text-center" }  %>
             <div class="custom-control custom-switch custom-switch-md px-3 mt-4 mb-1">
-              <%= f.input :shared, as: :boolean, label:"Article partagé", input_html: { class: "custom-control-input"}, label_html: { class: "custom-control-label" } %>
+              <%= f.input :shared, as: :boolean, label:"Partager", input_html: { class: "custom-control-input"}, label_html: { class: "custom-control-label" } %>
             </div>
-            <%= f.input :user_in_charge, label: "Article apporté par:", prompt: "ex. Brigitte", collection: @suitcase.member_users.map { |user| [user.first_name, user.id] } %>
-            <%= f.input :name, label: "Nom de l'article :", placeholder: "Chaussures de running", input_html: { class: "text-center" }  %>
+            <%= f.input :user_in_charge, label: "Apporté par:", prompt: "Choisir", collection: @suitcase.member_users.map { |user| [user.first_name, user.id] } %>
             <%= f.submit "Ajouter", class: "btn btn-primary btn-block" %>
           <% else %>
             <%= f.input :name, label: "Nom de l'article :", placeholder: "Chaussures de running", input_html: { class: "text-center" }  %>
+            <div class="custom-control custom-switch custom-switch-md px-3 mt-4 mb-1">
+              <%= f.input :shared, as: :boolean, label:"Partager", input_html: { class: "custom-control-input"}, label_html: { class: "custom-control-label" } %>
+            </div>
+            <%= f.input :user_in_charge, label: "Apporté par:", prompt: "Choisir", collection: @suitcase.member_users.map { |user| [user.first_name, user.id] } %>
             <%= f.submit "Ajouter", class: "btn btn-primary btn-block" %>
           <% end %>
+          <br>
         <% end %>
         <br>
-        <%= link_to "Voir les suggestions", suitcase_interests_path, class: "btn btn-success btn-block" %>
+        <hr>
+        <br>
+        <h3>Besoin d'inspiration ?</h3>
+        <br>
+        <%= link_to "Voir les suggestions", suitcase_interests_path, class: "btn btn-primary btn-block" %>
+        <br>
         <div class="row mb-5">
           <div class="col">
-            <%= link_to "<i class='fas fa-arrow-circle-left'></i> Voir ma valise".html_safe, suitcase_path(@suitcase), class: 'btn btn-back mt-3 mb-4 fixed-bottom d-flex align-items-center' %>
+            <%= link_to "<i class='fas fa-arrow-circle-left'></i> Voir ma valise".html_safe, suitcase_path(@suitcase), class: 'btn btn-back mt-3 mb-4 d-flex align-items-center' %>
           </div>
        </div>
     </div>
