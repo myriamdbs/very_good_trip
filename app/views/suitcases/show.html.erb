@@ -1,13 +1,15 @@
-<!-- <div style="position: fixed; bottom: 35px; right:30px; z-index: 2">
+<div style="position: fixed; bottom: 35px; right:30px; z-index: 2">
   <% if @suitcase.shared %>
-    <%= link_to '<i class="fas fa-plus-circle"></i>'.html_safe, new_suitcase_shared_item_path(@suitcase) %>
+    <div class="btn-item-plus">
+      <%= link_to '+', new_suitcase_shared_item_path(@suitcase), class: "btn-circle-plus"  %>
+    </div>
   <% else %>
     <%= link_to '<i class="fas fa-plus-circle"></i>'.html_safe, new_suitcase_item_path(@suitcase) %>
   <% end %>
-</div> -->
-<div class="btn-item-plus">
-  <%= link_to '+', new_suitcase_shared_item_path(@suitcase), class: "btn-circle-plus"  %>
 </div>
+<!-- <div class="btn-item-plus">
+  <%= link_to '+', new_suitcase_shared_item_path(@suitcase), class: "btn-circle-plus"  %>
+</div> -->
 
 
 <div class="container">
@@ -26,9 +28,9 @@
       <div>
         <div style="margin-left: 15px"><h3><%= @suitcase.name %></h3></div>
         <div style="margin-left: 15px"><strong><%= @suitcase.destination %></strong></h6></div>
-      </div> 
+      </div>
     </div>
-    
+
   <% end %>
 </div>
 <br>
@@ -54,11 +56,14 @@
             <% end %>
             <%= link_to cta, item_tick_path(item), method: :patch, remote: true %>
             <strong><span style="color: white;">o</span><%= item.name.capitalize %></strong>
+            <% if item.shared %>
+            <div class="badge badge-warning ml-2"><%= item.user_in_charge.first_name.capitalize if item.user_in_charge %></div>
+            <% end %>
           </div>
 
         <%# class="item-name" %>
         <div>
-          <%= link_to "x", item_path(item), method: :delete, data: { confirm: "Are you sure?" }, class: "x-form" %>
+          <%= link_to "x", item_path(item), method: :delete, data: { confirm: "Êtes-vous sûr ?" }, class: "x-form" %>
         </div>
       </div>
       <% end %>
