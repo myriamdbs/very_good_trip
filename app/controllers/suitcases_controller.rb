@@ -56,7 +56,7 @@ private
 
   def add_essential_items
     @items = []
-    [ "déodorant", "crème pour le visage", "sous-vêtements", "jeans", "t-shirts", "pulls", "sweatshirts", "chausettes", "chaussures", "chargeur de téléphone", "dentifrice", "brosse à dents" ].each do |item_name|
+    [ "chargeur de téléphone", "dentifrice", "brosse à dents" ].each do |item_name|
     @items << Item.create(name: item_name, suitcase: @suitcase)
     end
   end
