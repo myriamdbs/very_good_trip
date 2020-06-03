@@ -4,6 +4,10 @@
   grid-gap: 16px;
 }
 
+.cards_interests_index a {
+  color: #2F2D39;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards_interests_index {
