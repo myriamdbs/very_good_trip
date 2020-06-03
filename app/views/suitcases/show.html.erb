@@ -27,9 +27,10 @@
 <div class="container">
   <div class="row" >
     <div class="col-12" style="display: flex; justify-content: space-between; align-items: center">
-        <%= link_to "Emballés", suitcase_path(@suitcase, filter: @checked ? "" : :checked), class: "py-1 px-1 btn-menu #{params[:filter] == "checked" ? "btn-checked" : "btn-ghost"}" %>
-        <%= link_to "Pas emballés", suitcase_path(@suitcase, filter: @unchecked ? "" : :unchecked), class: "py-1 px-1 btn-menu #{params[:filter] == "unchecked" ? "btn-checked" : "btn-ghost"}" %>
-        <%= link_to "Partagés", suitcase_path(@suitcase, filter: @shared ? "" : :shared), class: "py-1 px-1 btn-menu #{params[:filter] == "shared" ? "btn-checked" : "btn-ghost"}" %>
+        <%= link_to "Tous", suitcase_path(@suitcase), class: "py-1 px-2 btn-menu #{params[:filter] == "" ? "btn-checked" : "btn-ghost"}" %>
+        <%= link_to "Emballés", suitcase_path(@suitcase, filter: @checked ? "" : :checked), class: "py-1 px-2 btn-menu #{params[:filter] == "checked" ? "btn-checked" : "btn-ghost"}" %>
+        <%= link_to "Pas emballés", suitcase_path(@suitcase, filter: @unchecked ? "" : :unchecked), class: "py-1 px-2 btn-menu #{params[:filter] == "unchecked" ? "btn-checked" : "btn-ghost"}" %>
+        <%= link_to "Partagés", suitcase_path(@suitcase, filter: @shared ? "" : :shared), class: "py-1 px-2 btn-menu #{params[:filter] == "shared" ? "btn-checked" : "btn-ghost"}" %>
     </div>
   </div>
   <br>
