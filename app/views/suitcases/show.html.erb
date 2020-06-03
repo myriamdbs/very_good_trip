@@ -5,8 +5,9 @@
     <%= link_to '<i class="fas fa-plus-circle"></i>'.html_safe, new_suitcase_item_path(@suitcase) %>
   <% end %>
 </div> -->
-<%= link_to '+', new_suitcase_shared_item_path(@suitcase), class: "btn btn-primary btn-circle-plus"  %>
-
+<div class="btn-item-plus">
+  <%= link_to '+', new_suitcase_shared_item_path(@suitcase), class: "btn-circle-plus"  %>
+</div>
 
 
 <div class="container">
