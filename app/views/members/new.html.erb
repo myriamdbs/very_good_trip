@@ -13,7 +13,7 @@
       <h5 class="mb-3">Les compagnons de cette valise :</h5>
       <ul class="companion-list">
         <% @suitcase.member_users.each do |user| %>
-          <li><i class="fas fa-user"></i><%= user.first_name&.capitalize %></li>
+          <li><i class="fas fa-user mr-2"></i><%= user.first_name&.capitalize %></li>
         <% end %>
       </ul>
     </div>
