@@ -9,7 +9,7 @@
       <%= f.input :shared, as: :boolean, label: "Associer des compagnons de voyage", input_html: { class: "custom-control-input"}, label_html: { class: "custom-control-label" } %>
     </div>
     <div class="form-inline mt-3 mb-4">
-      <%= f.input :photo, input_html: { class: 'hidden d-none', id: 'photo-input'}, label_html: { class: 'btn-light btn my-0'}, label: '📷 Mettre une photo' %>
+      <%= f.input :photo, input_html: { class: 'hidden d-none', id: 'photo-input'}, label_html: { class: 'btn-light btn my-0 px-3'}, label: '<i class="fa fa-camera-retro pr-2"></i> Mettre une photo'.html_safe %>
       <%= image_tag "", width: 100, class: "hidden ml-4", id: "photo-preview" %>
     </div>
     <%= f.button :submit, "Créer", class: "btn btn-primary btn-block mb-5" %>
