@@ -1,13 +1,13 @@
 const toggleChoiceInNewItemForm = () => {
-  const radioButton = document.querySelector("#item_shared_false");
+  const toggleButton = document.querySelector("#item_shared");
   const formToHide = document.querySelector(".item_user_in_charge");
-  const radioButtonYes = document.querySelector("#item_shared_true");
-  if (radioButton && formToHide) {
-    radioButton.addEventListener("change", (event) => {
-      formToHide.classList.add("d-none");
-    });
-    radioButtonYes.addEventListener("change", (event) => {
-      formToHide.classList.remove("d-none");
+  if (toggleButton) {
+    toggleButton.addEventListener("change", (event) => {
+      if (formToHide.style.display === "block") {
+        formToHide.style.display = "none";
+      } else {
+        formToHide.style.display = "block";
+      };
     });
   }
 };

@@ -5,8 +5,9 @@
       <hr>
         <%= simple_form_for [@suitcase, @item] do |f| %>
           <% if @suitcase.shared %>
-            <%= f.input :shared, as: :boolean, label: "Partagé", input_html: { class: "custom-control-input"}, label_html: { class: "custom-control-label" } %>
-            <%#= f.input :shared, label: "Partagé ?", as: :radio_buttons %>
+            <div class="custom-control custom-switch px-3">
+              <%= f.input :shared, as: :boolean, label: "Partagé", input_html: { class: "custom-control-input"}, label_html: { class: "custom-control-label" } %>
+            </div>
             <%= f.input :user_in_charge, label: "Article apporté par:", collection: @suitcase.member_users.map { |user| [user.first_name, user.id] } %>
             <%= f.input :name, label: "Nom de l'article :", placeholder: "Chaussures de running", input_html: { class: "text-center" }  %>
             <%= f.submit "Ajouter", class: "btn btn-primary btn-block" %>
