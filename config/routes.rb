@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :interests, only: [:index]
     resources :suggestions, only: [:index]
     resources :members, only: [:new, :create]
+    resources :suggested_items, only: [:create]
   end
   resources :items, only: [:destroy] do
     resource :tick, only: [:update]
