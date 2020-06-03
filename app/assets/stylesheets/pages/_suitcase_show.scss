@@ -65,8 +65,8 @@
     font-size: 30px;
 }
 
-.fa-circle:before {
-    font-size: 30px;
+.fa-circle {
+    font-size: 22px;
 }
 
 .fa-plus-circle:before {
@@ -74,8 +74,8 @@
     font-size: 50px;
 }
 
-.fa-check-circle:before {
-    font-size: 30px;
+.fa-check-circle {
+    font-size: 22px;
 }
 
 
@@ -88,8 +88,14 @@
 }
 
 .x-form {
-    font-size: 30px;
-    color: #EDF1FC;
+  font-size: 30px;
+  color: #EDF1FC;
+  transform: rotate(45deg);
+}
+
+.x-form a {
+  color: #DCE4F9;
+  opacity: 1;
 }
 
 .btn-menu {
