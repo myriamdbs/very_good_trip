@@ -1,14 +1,14 @@
-.companion-list{
+.companion-list {
   list-style-type: none;
   font-size: 20px;
   margin:0;
   padding:0;
-  text-align: left;
-  padding-left: 100px;
+  text-align: center;
   margin-bottom: 30px;
 }
 
-.fa-user {
+.fa-user:before {
   color: #615D74;
+  font-size: 18px;
 
 }
