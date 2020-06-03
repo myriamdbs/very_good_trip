@@ -1,15 +1,17 @@
-<div class="container my-3">
-  <h4 class="text-center my-3">Ajouter une nouvelle valise</h4>
+<div class="container py-2 bg-image">
+  <h4 class="text-center mt-3 mb-4">Ajouter une nouvelle valise</h4>
   <%= simple_form_for(@suitcase) do |f| %>
     <%= f.input :name, placeholder: 'Week-end à la mer', label: "Nom du voyage" %>
     <%= f.input :destination, placeholder: 'Barcelone' %>
     <%= f.input :start_date, as: :string, input_html: {class: "datepicker"}, placeholder: "2020-08-01", label: "Date de départ" %>
     <%= f.input :end_date, as: :string, input_html: {class: "datepicker"}, placeholder: "2020-08-20",  label: "Date de retour" %>
-    <div class="custom-control custom-switch px-3">
-      <%= f.input :shared, as: :boolean, label: "Partager ma valise avec des compagnons", input_html: { class: "custom-control-input"}, label_html: { class: "custom-control-label" } %>
+    <div class="custom-control custom-switch custom-switch-md px-3 mt-4 mb-1">
+      <%= f.input :shared, as: :boolean, label: "Associer des compagnons de voyage", input_html: { class: "custom-control-input"}, label_html: { class: "custom-control-label" } %>
     </div>
-    <%= f.input :photo, input_html: { class: 'hidden d-none', id: 'photo-input'}, label_html: { class: 'btn-success btn my-3'}, label: '📷 Upload a photo' %>
-    <%= image_tag "", width: 100, class: "hidden", id: "photo-preview" %>
+    <div class="form-inline mt-3 mb-4">
+      <%= f.input :photo, input_html: { class: 'hidden d-none', id: 'photo-input'}, label_html: { class: 'btn-light btn my-0'}, label: '📷 Mettre une photo' %>
+      <%= image_tag "", width: 100, class: "hidden ml-4", id: "photo-preview" %>
+    </div>
     <%= f.button :submit, "Créer", class: "btn btn-primary btn-block mb-5" %>
   <% end %>
 </div>
