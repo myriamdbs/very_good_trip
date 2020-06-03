@@ -18,7 +18,11 @@
         <% end %>
         <br>
         <%= link_to "Voir les suggestions", suitcase_interests_path, class: "btn btn-success btn-block" %>
-        <%= link_to "Retour à ma valise", suitcase_path(@suitcase), class: 'btn btn-dark m-3 py-2' %>
+        <div class="row mb-5">
+          <div class="col">
+            <%= link_to "<i class='fas fa-arrow-circle-left'></i> Voir ma valise".html_safe, suitcase_path(@suitcase), class: 'btn btn-back mt-3 mb-4 fixed-bottom d-flex align-items-center' %>
+          </div>
+       </div>
     </div>
   </div>
 
