@@ -39,4 +39,12 @@ document.addEventListener('turbolinks:load', () => {
   flatpickr(".datepicker", {});
   toggleChoiceInNewItemForm();
   previewImageOnFileSelect();
+  const inputStyle = document.querySelector("#item_name")
+  const returnStyle = document.querySelector("#click-listener")
+    inputStyle.addEventListener("click", (event) => {
+      inputStyle.classList.add("style_bigger")
+    });
+    returnStyle.addEventListener("click", (event) => {
+      inputStyle.classList.remove("style_bigger")
+    });
 });

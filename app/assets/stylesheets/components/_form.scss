@@ -5,8 +5,8 @@
 }
 .custom-control-input:checked ~ .custom-control-label::before {
   color: #fff;
-  border-color: #4ECAB0;
-  background-color: #4ECAB0;
+  border-color: #2FA6C8;
+  background-color: #2FA6C8;
 }
 
 @mixin switch($res: 'sm') {
@@ -68,3 +68,9 @@
   text-align-last: center;
 }
 
+.style_bigger {
+  height: 65px;
+  font-size: 30px;
+  transition: ease 1s;
+  color: #2FA6C8;
+}
