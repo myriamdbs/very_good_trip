@@ -1,23 +1,30 @@
 <div class="container bg-white pb-3 px-2 pt-1">
   <div class="row">
     <div class="col text-center">
-      <h3>Ajouter un article à ma valise</h3>
+      <h3>Ajouter un article</h3>
       <hr>
         <%= simple_form_for [@suitcase, @item] do |f| %>
           <% if @suitcase.shared %>
             <div class="custom-control custom-switch px-3">
               <%= f.input :shared, as: :boolean, label: "Partagé", input_html: { class: "custom-control-input"}, label_html: { class: "custom-control-label" } %>
             </div>
-            <%= f.input :name, label: "Nom de l'article :", placeholder: "Chaussures de running", input_html: { class: "text-center" }  %>
+            <%= f.input :name, label: "Nom :", placeholder: "Chaussures de running", input_html: { class: "text-center" }  %>
             <%= f.submit "Ajouter", class: "btn btn-primary btn-block" %>
           <% else %>
-            <%= f.input :name, label: "Nom de l'article :", placeholder: "Chaussures de running", input_html: { class: "text-center" }  %>
+            <%= f.input :name, label: "Nom :", placeholder: "Chaussures de running", input_html: { class: "text-center" }  %>
             <%= f.submit "Ajouter", class: "btn btn-primary btn-block" %>
           <% end %>
         <% end %>
         <br>
-          <%= link_to "Voir les suggestions", suitcase_interests_path, class: "btn btn-success btn-block" %>
-          <%= link_to "Retour à ma valise", suitcase_path(@suitcase), class: 'btn btn-dark m-3 py-2' %>
+      <h3>Besoin d'inspiration ?</h3>
+      <br>
+      <%= link_to "Voir les suggestions", suitcase_interests_path, class: "btn btn-success btn-block" %>
+      <br>
+      <div class="row mb-5">
+        <div class="col">
+          <%= link_to "<i class='fas fa-arrow-circle-left'></i> Voir ma valise".html_safe, suitcase_path(@suitcase), class: 'btn btn-back mt-3 mb-4 d-flex align-items-center' %>
+        </div>
+       </div>
     </div>
   </div>
 </div>
