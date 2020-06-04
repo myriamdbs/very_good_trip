@@ -20,13 +20,17 @@
 }
 
 .btn-checked {
-  color: #4A4A4A;
+  color: white;
   opacity: 1;
-  border: 1px solid #4A4A4A;
+  border: 1px solid #615D74;
+  background-color: #615D74;
   border-radius: 50px;
   transition: opacity 0.3s ease;
 }
 
+a.btn-ghost:hover {
+  color: #4A4A4A;
+}
 .btn-warning {
   color: #615D74;
   font-size: larger;
@@ -80,8 +84,8 @@
 }
 
 .btn-menu-1 {
-    width: 100px;
-    text-align: center;
+  width: 100px;
+  text-align: center;
 }
 
 .btn-menu-2 {

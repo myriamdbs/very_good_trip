@@ -31,6 +31,7 @@ import { previewImageOnFileSelect } from '../components/photo_preview'
 import { initAutocomplete } from "../plugins/init_autocomplete";
 import flatpickr from "flatpickr";
 import { toggleChoiceInNewItemForm } from "../components/toggle_choice_in_new_item_form";
+import { inputStyle } from "../components/input_style"
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -39,12 +40,5 @@ document.addEventListener('turbolinks:load', () => {
   flatpickr(".datepicker", {});
   toggleChoiceInNewItemForm();
   previewImageOnFileSelect();
-  const inputStyle = document.querySelector("#item_name")
-  const returnStyle = document.querySelector("#click-listener")
-    inputStyle.addEventListener("click", (event) => {
-      inputStyle.classList.add("style_bigger")
-    });
-    //returnStyle.addEventListener("click", (event) => {
-      //inputStyle.classList.remove("style_bigger")
-    //});
+  inputStyle();
 });
