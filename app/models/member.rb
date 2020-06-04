@@ -8,3 +8,4 @@ class Member < ApplicationRecord
 
   validates :user_id, uniqueness: { scope: :suitcase_id, message: "Ce compagnon a déjà été ajouté" }
 end
+
