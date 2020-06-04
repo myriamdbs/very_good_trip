@@ -44,7 +44,7 @@ document.addEventListener('turbolinks:load', () => {
     inputStyle.addEventListener("click", (event) => {
       inputStyle.classList.add("style_bigger")
     });
-    returnStyle.addEventListener("click", (event) => {
-      inputStyle.classList.remove("style_bigger")
-    });
+    //returnStyle.addEventListener("click", (event) => {
+      //inputStyle.classList.remove("style_bigger")
+    //});
 });
