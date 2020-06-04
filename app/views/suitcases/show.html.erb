@@ -22,8 +22,8 @@
   <div class="row" >
     <div class="col-12" style="display: flex; justify-content: center; align-items: center">
       <div>
-        <%= link_to "Emballés", suitcase_path(@suitcase, filter: @checked ? "" : :checked), class: "py-1 px-2 mr-2 #{params[:filter] == "checked" ? "btn-checked" : "btn-ghost"}" %>
-        <%= link_to "Pas emballés", suitcase_path(@suitcase, filter: @unchecked ? "" : :unchecked), class: "py-1 px-2 mr-2 #{params[:filter] == "unchecked" ? "btn-checked" : "btn-ghost"}" %>
+        <%= link_to "Emballés", suitcase_path(@suitcase, filter: @checked ? "" : :checked), class: "py-1 px-2 mr-2 #{params[:filter] == "checked" ? "btn-checked" : "btn-ghost"}"  %>
+        <%= link_to "Pas emballés", suitcase_path(@suitcase, filter: @unchecked ? "" : :unchecked), class: "py-1 px-2 mr-2 #{params[:filter] == "unchecked" ? "btn-checked" : "btn-ghost"}"  %>
         <%= link_to "...", suitcase_path(@suitcase), class: "btn-ghost py-1 px-2 mr-2 #{"btn-checked" if params[:filter].nil? == true }" %>
       </div>
     </div>
@@ -31,25 +31,10 @@
   <br>
   <div class="row">
     <div class="col-12">
-      <% @items.each do |item| %>
-      <div class="item-wrap">
-        
-          <div class="item-packed" style="display:flex; align-items:center">
-            <%if item.packed %>
-              <% cta = '<i class="fas fa-check-circle"></i>'.html_safe %>
-            <% else %>
-              <% cta = '<i class="far fa-circle"></i>'.html_safe %>
-            <% end %>
-            <%= link_to cta, item_tick_path(item), method: :patch, remote: true %>
-            <strong><span style="color: white;">o</span><%= item.name.capitalize %></strong>
-          </div>
-        
-        <%# class="item-name" %>
-        <div class="item-remove">
-          <%= link_to image_tag("rubbish.png", class: "remove-picture"), item_path(item), method: :delete, data: { confirm: "Are you sure?" } %>
-        </div>
-      </div>
-      <% end %>
+     <div class="itemlist">
+     <%= render "itemlist", items: @items  %>
+     
+       </div>
     </div>
   </div>
   

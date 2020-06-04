@@ -1,0 +1,19 @@
+      <% items.each do |item| %>
+      <div class="item-wrap">
+        
+          <div class="item-packed" style="display:flex; align-items:center">
+            <%if item.packed %>
+              <% cta = '<i class="fas fa-check-circle"></i>'.html_safe %>
+            <% else %>
+              <% cta = '<i class="far fa-circle"></i>'.html_safe %>
+            <% end %>
+            <%= link_to cta, item_tick_path(item), method: :patch, remote: true %>
+            <strong><span style="color: white;">o</span><%= item.name.capitalize %></strong>
+          </div>
+        
+        <%# class="item-name" %>
+        <div class="item-remove">
+          <%= link_to image_tag("rubbish.png", class: "remove-picture"), item_path(item), method: :delete, data: { confirm: "Are you sure?" } %>
+        </div>
+      </div>
+      <% end %>
