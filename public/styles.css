@@ -3,3 +3,8 @@
     font-size: 100px;
     color: #f85a3e;;
 }
+
+.fa-unlink:before {
+    content: "\f127";
+    font-size: 60px;
+}
