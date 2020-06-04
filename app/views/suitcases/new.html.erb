@@ -1,4 +1,5 @@
-<div class="container py-2 bg-image">
+<div class="bg-image">
+<div class="container py-2 form-with-bg">
   <h4 class="text-center mt-3 mb-4">Ajouter une nouvelle valise</h4>
   <%= simple_form_for(@suitcase) do |f| %>
     <%= f.input :name, placeholder: 'Week-end à la mer', label: "Nom du voyage" %>
@@ -14,4 +15,5 @@
     </div>
     <%= f.button :submit, "Créer", class: "btn btn-primary btn-block mb-5" %>
   <% end %>
+</div>
 </div>
