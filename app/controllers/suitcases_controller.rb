@@ -30,6 +30,8 @@ class SuitcasesController < ApplicationController
   def show
     authorize @suitcase
     @items =  case params["filter"]
+    when "all"
+      @suitcase.items
     when "checked"
       @checked = true
       @suitcase.items.packed
