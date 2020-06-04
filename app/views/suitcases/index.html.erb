@@ -1,6 +1,6 @@
 <div class="container">
   <br>
-  <h2>Mes valises à venir</h2>
+  <h3 class="text-center">Mes valises à venir</h3>
   <br>
   <% @suitcases.each do |suitcase|%>
     <% if suitcase.end_date >= Date.today %>
@@ -24,10 +24,10 @@
   <%= link_to new_suitcase_path do %>
           <div class="card-category-add-suitcase-button">
             <h1 class="suitcase-cta-new">+</h1>
-            <h5 class="suitcase-cta-new">ajouter une nouvelle valise</h5>
+            <h5 class="suitcase-cta-new">Ajouter une nouvelle valise</h5>
           </div>
         <% end %>
-  <h2>Mes valises passées</h2>
+  <h3 class="text-center">Mes valises passées</h3>
   <br>
   <% @suitcases.each do |suitcase|%>
     <% if suitcase.end_date <= Date.today %>

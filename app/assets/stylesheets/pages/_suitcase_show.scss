@@ -25,7 +25,7 @@
 }
 
 .fa-chevron-left:before {
-    color: red;
+    color: white;
 }
 
 .remove-picture {
@@ -65,8 +65,9 @@
     font-size: 30px;
 }
 
-.fa-circle:before {
-    font-size: 30px;
+.fa-circle {
+    font-size: 22px;
+    color: #26C6DA;
 }
 
 .fa-plus-circle:before {
@@ -74,6 +75,27 @@
     font-size: 50px;
 }
 
-.fa-check-circle:before {
-    font-size: 30px;
+.fa-check-circle {
+    font-size: 22px;
+    color: #4ECAB0;
+}
+
+
+.show-avatar {
+    background-size: cover;
+    background: center;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+}
+
+.x-form {
+  font-size: 30px;
+  color: #EDF1FC;
+  transform: rotate(45deg);
+}
+
+.x-form a {
+  color: #DCE4F9;
+  opacity: 1;
 }

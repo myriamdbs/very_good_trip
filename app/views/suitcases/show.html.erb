@@ -1,41 +1,55 @@
-<div style="position: fixed; bottom: 35px; right:30px; z-index: 2">
-  <%= link_to '<i class="fas fa-plus-circle"></i>'.html_safe, suitcase_interests_path(@suitcase)%>
-</div>
-
-
-<% if @suitcase.photo.attached? %>
-  <div class="card-category-back" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @suitcase.photo.key %>)">
-    <%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, suitcases_path, class: "banner-back" %>
-    <h3><%= @suitcase.name %></h3>
-    <h6>Ma valise pour <strong><%= @suitcase.destination %></strong></h6>
-  </div>
+<% if @suitcase.shared %>
+  <%= link_to '+', new_suitcase_shared_item_path(@suitcase), class: "btn-circle-plus"  %>
 <% else %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path("waves_vacation_omfcsd.png") %>)">
-    <h3><%= @suitcase.name %></h3>
-    <h6>Ma valise pour <strong><%= @suitcase.destination %></strong></h6>
-  </div>
+  <%= link_to '+', new_suitcase_item_path(@suitcase), class: "btn-circle-plus" %>
 <% end %>
 
-<br>
-
 <div class="container">
-  <div class="row" >
-    <div class="col-12" style="display: flex; justify-content: center; align-items: center">
-      <div>
-        <%= link_to "Emballés", suitcase_path(@suitcase, filter: @checked ? "" : :checked), class: "py-1 px-2 mr-2 #{params[:filter] == "checked" ? "btn-checked" : "btn-ghost"}"  %>
-        <%= link_to "Pas emballés", suitcase_path(@suitcase, filter: @unchecked ? "" : :unchecked), class: "py-1 px-2 mr-2 #{params[:filter] == "unchecked" ? "btn-checked" : "btn-ghost"}"  %>
-        <%= link_to "...", suitcase_path(@suitcase), class: "btn-ghost py-1 px-2 mr-2 #{"btn-checked" if params[:filter].nil? == true }" %>
+  <% if @suitcase.photo.attached? %>
+    <div style=" display: flex; align-items: center; padding-top: 15px">
+      <%= image_tag (cl_image_path @suitcase.photo.key), class: "avatar-large", alt: "avatar-large" %>
+    <div>
+        <div style="margin-left: 15px"><h3><%= @suitcase.name %></h3></div>
+        <div style="margin-left: 15px"><strong><%= @suitcase.destination %></strong></h6></div>
       </div>
+    </div>
+  <% else %>
+    <div style=" display:flex; align-items: center; padding-top: 15px">
+      <%= image_tag (cl_image_path("waves_vacation_omfcsd.png")), class: "avatar-large", alt: "avatar-large" %>
+      <div>
+
+        <div style="margin-left: 15px"><h3><%= @suitcase.name %></h3></div>
+        <div style="margin-left: 15px"><strong><%= @suitcase.destination %></strong></h6></div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="display: flex; justify-content: space-between; align-items: center">
+      <% if @suitcase.shared == true %>
+        <%= link_to "Tous", suitcase_path(@suitcase), class: "py-1 px-2  #{params[:filter] == "" ? "btn-checked" : "btn-ghost"}" %>
+        <%= link_to "Emballés", suitcase_path(@suitcase, filter: @checked ? "" : :checked), class: "py-1 px-2 #{params[:filter] == "checked" ? "btn-checked" : "btn-ghost"}" %>
+        <%= link_to "Pas emballés", suitcase_path(@suitcase, filter: @unchecked ? "" : :unchecked), class: "py-1 px-2  #{params[:filter] == "unchecked" ? "btn-checked" : "btn-ghost"}" %>
+        <%= link_to "Partagés", suitcase_path(@suitcase, filter: @shared ? "" : :shared), class: "py-1 px-2  #{params[:filter] == "shared" ? "btn-checked" : "btn-ghost"}" %>
+      <% else %>
+        <%= link_to "Tous", suitcase_path(@suitcase), class: "py-1 px-2 btn-menu-1 #{params[:filter] == "" ? "btn-checked" : "btn-ghost"}" %>
+        <%= link_to "Emballés", suitcase_path(@suitcase, filter: @checked ? "" : :checked), class: "py-1 px-2 btn-menu-1 #{params[:filter] == "checked" ? "btn-checked" : "btn-ghost"}" %>
+        <%= link_to "Pas emballés", suitcase_path(@suitcase, filter: @unchecked ? "" : :unchecked), class: "py-1 px-2 btn-menu-2 #{params[:filter] == "unchecked" ? "btn-checked" : "btn-ghost"}" %>
+      <% end %>
     </div>
   </div>
   <br>
   <div class="row">
     <div class="col-12">
+
      <div class="itemlist">
      <%= render "itemlist", items: @items  %>
      
        </div>
+
     </div>
   </div>
-  
+
 </div>

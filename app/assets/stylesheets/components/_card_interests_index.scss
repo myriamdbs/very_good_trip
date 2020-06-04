@@ -2,7 +2,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
+}
 
+.cards_interests_index a {
+  color: #2F2D39;
 }
 
 // Smallest device
@@ -52,10 +55,11 @@
   color: red;
   font-size: 24px;
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  /*text-shadow: 1px 1px 3px rgba(0,0,0,0.2);*/
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-bottom: 16px;
   justify-content: center;
+  background-color: white;
 }
 

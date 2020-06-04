@@ -37,26 +37,26 @@ suitcase5.photo.attach(io: file, filename: 'campagne.png', content_type: 'image/
 items = {
   "Maillot de bain" => ["Piscine", "Plage"],
   "Serviette" => ["Piscine", "Plage", "Fitness"],
-  "Lunettes de soleil" => ["Plage", "Randonée"],
+  "Lunettes de soleil" => ["Plage", "Randonnée"],
   "Parasol" => ["Plage"],
   "Tongs" => ["Piscine", "Plage"],
   "Chapeau / Casquette" => ["Plage", "Randonnée"],
-  "Crème solaire" => ["Randonée", 'plage',"Sport d'hiver"],
+  "Crème solaire" => ["Randonnée", 'plage',"Sport d'hiver"],
   "Après-Soleil" => ["Plage", "Randonnée"],
-  "Anti-moustique" => ["Randonée"],
-  "Gourde" => ["Randonée", "Fitness"],
+  "Anti-moustique" => ["Randonnée"],
+  "Gourde" => ["Randonnée", "Fitness"],
   "Chaussures de running" => ["Fitness"],
-  "Chaussures de marche" => ["Randonée"],
-  "Kit de secours" => ["Randonée"],
-  "Batterie portable externe" => ["Randonée"],
-  "Sac à dos" => ["Randonée"],
+  "Chaussures de marche" => ["Randonnée"],
+  "Kit de secours" => ["Randonnée"],
+  "Batterie portable externe" => ["Randonnée"],
+  "Sac à dos" => ["Randonnée"],
   "Après-ski" => ["Sport d'hiver"],
   "Baume à lèvre" => ["Sport d'hiver"],
   "Bonnet" => ["Sport d'hiver"],
   "Casque" => ["Sport d'hiver"],
   "Echarpe" => ["Sport d'hiver"],
   "Masque de ski" => ["Sport d'hiver"],
-  "Gants" => ["Sport d'hiver", "Randonée"],
+  "Gants" => ["Sport d'hiver", "Randonnée"],
   "Appareil Photo" => ["Photo"],
   "Chargeur d'appareil photo" => ["Photo"],
   "Objectifs" => ["Photo"],
@@ -70,19 +70,6 @@ items.each do |item, interests|
   suggestion.interest_list.add(interests)
   suggestion.save!
 end
-
-# interests = {
-#   "piscine" => ["maillot", "serviette"],
-#   "plage" => ["maillot", "serviette", "tongs"]
-# }
-
-# interests.each do |interest, suggestions|
-#   suggestions.each do |suggestion_name|
-#     suggestion = Suggestion.create!(name: suggestion_name)
-#     suggestion.tag_list.add(interest)
-#     suggestion.save!
-#   end
-# end
 
 item1 = Item.new(name:"Brosse à dents", suitcase:suitcase1)
 item1.save

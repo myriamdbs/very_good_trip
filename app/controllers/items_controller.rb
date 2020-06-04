@@ -9,15 +9,13 @@ class ItemsController < ApplicationController
   def create
     @suitcase = Suitcase.find(params[:suitcase_id])
     @item = Item.new(item_params)
-    authorize @item
     @item.suitcase = @suitcase
-    user = @suitcase.user
-    user = current_user
+    authorize @item
     if @item.save
       redirect_to suitcase_path(@suitcase)
+      flash[:alert] = "#{@item.name.capitalize} a été ajouté"
     else
-      @item = Item.new
-      render "suitcases/show"
+      render :new
     end
   end
 
@@ -34,7 +32,7 @@ private
     if params[:suggestion_name]
       return { name: params[:suggestion_name] }
     else
-      params.require(:item).permit(:name)
+      params.require(:item).permit(:name, :shared)
     end
   end
 end
