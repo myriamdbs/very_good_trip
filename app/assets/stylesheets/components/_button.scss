@@ -22,8 +22,8 @@
 .btn-checked {
   color: white;
   opacity: 1;
-  border: 1px solid #615D74;
-  background-color: #615D74;
+  border: 1px solid #7C7792;
+  background-color: #7C7792;
   border-radius: 50px;
   transition: opacity 0.3s ease;
 }
@@ -31,6 +31,11 @@
 a.btn-ghost:hover {
   color: #4A4A4A;
 }
+
+a.btn-checked:hover {
+  color: white;
+}
+
 .btn-warning {
   color: #615D74;
   font-size: larger;
