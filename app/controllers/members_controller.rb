@@ -9,7 +9,7 @@ class MembersController < ApplicationController
     @member = Member.new
     @usermail = params[:member][:email]
     @user = User.find_by(email: @usermail)
-    @member.user_id = @user.id
+    @member.user_id = @user.id if @user
     @suitcase = Suitcase.find(params[:suitcase_id])
     @member.suitcase = @suitcase
     authorize @member
