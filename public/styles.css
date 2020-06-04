@@ -7,4 +7,5 @@
 .fa-unlink:before {
     content: "\f127";
     font-size: 60px;
+    color: #f85a3e;
 }
