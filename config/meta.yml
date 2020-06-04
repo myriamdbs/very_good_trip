@@ -1,0 +1,5 @@
+meta_product_name: "Very Good Trip"
+meta_title: "Very Good Trop - Faire sa valise en toute sérénité"
+meta_description: "Une appli pour vous aider à faire votre valise sans stress"
+meta_image: "background-home-v1.jpg" # should exist in `app/assets/images/`
+#twitter_account: "@product_twitter_account"   # required for Twitter Cards
