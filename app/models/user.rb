@@ -6,4 +6,14 @@ class User < ApplicationRecord
   has_many :suitcases
   has_many :items, through: :suitcases
   has_many :members
+
+  before_save :capitalize_name
+
+  private
+
+  def capitalize_name
+    self.first_name.capitalize!
+    self.last_name.capitalize!
+  end
+
 end
