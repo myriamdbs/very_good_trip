@@ -8,7 +8,8 @@ class MembersController < ApplicationController
   def create
     @member = Member.new
     @usermail = params[:member][:email]
-    @member.user_id = User.find_by(email: @usermail).id
+    @user = User.find_by(email: @usermail)
+    @member.user_id = @user.id if @user
     @suitcase = Suitcase.find(params[:suitcase_id])
     @member.suitcase = @suitcase
     authorize @member
