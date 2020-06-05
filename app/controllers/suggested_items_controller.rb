@@ -6,7 +6,6 @@ class SuggestedItemsController < ApplicationController
     authorize @item
     if @item.save
       redirect_back(fallback_location: root_path)
-      flash[:alert] = "#{@item.name.capitalize} a été ajouté"
     else
       render :new
     end
