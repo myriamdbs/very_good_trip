@@ -1,5 +1,5 @@
 <% content_for :meta_title, "Ma valise pour partir en voyage" %>
-
+<meta name="turbolinks-visit-control" content="reload">
 <% if @suitcase.shared %>
   <%= link_to '+', new_suitcase_shared_item_path(@suitcase), class: "btn-circle-plus"  %>
 <% else %>
