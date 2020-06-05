@@ -1,8 +1,9 @@
 <% content_for :meta_title, "Ajouter un article à ma valise" %>
 
-<div class="container bg-white pb-3 px-2 pt-1">
+<div class="container pb-3 px-2 pt-1">
   <div class="row">
     <div class="col text-center">
+      <br>
       <h3>Ajouter un article</h3>
       <hr>
         <%= simple_form_for [@suitcase, @item] do |f| %>
@@ -16,7 +17,10 @@
             <%= f.input :name, label: "Nom :", placeholder: "Chaussures de running", input_html: { class: "text-center" }  %>
             <%= f.submit "Ajouter", class: "btn btn-primary btn-block" %>
           <% end %>
+          <br>
         <% end %>
+        <br>
+        <hr>
         <br>
       <h3>Besoin d'inspiration ?</h3>
       <br>
