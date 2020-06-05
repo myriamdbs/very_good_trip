@@ -12,7 +12,7 @@ Suitcase.destroy_all
 User.destroy_all
 Suggestion.destroy_all
 
-user1 = User.new(email: "charlotte.pichelot@gmail.com", password: "chacha", first_name: "charlotte", last_name: "pichelot" )
+user1 = User.new(email: "charlotte@gmail.com", password: "chacha", first_name: "charlotte", last_name: "pichelot" )
 user1.save
 user2 = User.new(email: "mimi@gmail.com", password: "mimimi", first_name: "myriam", last_name: "dbs" )
 user2.save
