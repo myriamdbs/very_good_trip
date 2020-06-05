@@ -24,7 +24,11 @@
   </div>
   <div class="row mb-5">
     <div class="col">
-      <%= link_to "Continuer<i class='fas fa-arrow-circle-right'></i>".html_safe, suitcase_path(@suitcase), class: 'btn btn-back mt-3 mb-4 d-flex justify-content-end' %>
+      <%= link_to "Continuer<i class='fas fa-arrow-circle-right'></i>".html_safe, 
+        suitcase_path(@suitcase),
+        class: 'btn btn-back mt-3 mb-4 d-flex justify-content-end',
+        data: {turbolinks: false}
+     %>
     </div>
   </div>
 </div>
