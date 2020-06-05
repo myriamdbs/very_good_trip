@@ -9,15 +9,19 @@
 <div class="container">
   <% if @suitcase.photo.attached? %>
     <div style=" display: flex; align-items: center; padding-top: 15px">
-      <%= image_tag (cl_image_path @suitcase.photo.key), class: "avatar-large", alt: "avatar-large" %>
-    <div>
+      <div>
+        <%= image_tag (cl_image_path @suitcase.photo.key), class: "avatar-large", alt: "avatar-large" %>
+      </div>
+      <div>
         <div style="margin-left: 15px"><h3><%= @suitcase.name %></h3></div>
         <div style="margin-left: 15px"><strong><%= @suitcase.destination %></strong></h6></div>
       </div>
     </div>
   <% else %>
     <div style=" display:flex; align-items: center; padding-top: 15px">
-      <%= image_tag (cl_image_path("waves_vacation_omfcsd.png")), class: "avatar-large", alt: "avatar-large" %>
+      <div>
+        <%= image_tag (cl_image_path("waves_vacation_omfcsd.png")), class: "avatar-large", alt: "avatar-large" %>
+      </div>
       <div>
 
         <div style="margin-left: 15px"><h3><%= @suitcase.name %></h3></div>
