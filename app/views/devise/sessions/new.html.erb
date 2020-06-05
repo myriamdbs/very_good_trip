@@ -1,29 +1,29 @@
 
 <div class="container">
-  <h2>Log in</h2>
+  <h4 style="margin-top: 15px"> < Connexion à votre compte</h4>
 
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-inputs">
-      <%= f.input :email,
+      <%= f.input :email, label: "E-mail",
                   required: false,
                   autofocus: true,
                   input_html: { autocomplete: "email" } %>
-      <%= f.input :password,
+      <%= f.input :password, label: "Mot de passe",
                   required: false,
                   input_html: { autocomplete: "current-password" } %>
       <div style="display: flex; justify-content: space-between; align-items: center">
         <div>
-          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          <%= f.input :remember_me, label: "Rester connecter", as: :boolean if devise_mapping.rememberable? %>
         </div>
         <div style="margin-bottom: 16px">
-          <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+          <%= link_to "Mot de passe oublié?", new_password_path(resource_name) %>
         </div>
       </div>
       
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Log in", class: "btn btn-primary btn-block" %>
+      <%= f.button :submit, "SE CONNECTER", class: "btn btn-primary btn-block" %>
     </div>
     <% end %>
     <div class="devise-sign-up">
