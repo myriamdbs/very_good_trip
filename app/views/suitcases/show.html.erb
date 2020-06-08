@@ -1,5 +1,6 @@
 <% content_for :meta_title, "Ma valise pour partir en voyage" %>
 <meta name="turbolinks-visit-control" content="reload">
+
 <% if @suitcase.shared %>
   <%= link_to '+', new_suitcase_shared_item_path(@suitcase), class: "btn-circle-plus"  %>
 <% else %>
@@ -7,33 +8,44 @@
 <% end %>
 
 <div class="container">
-  <% if @suitcase.photo.attached? %>
-    <div style=" display: flex; align-items: center; padding-top: 15px">
-      <div>
-        <%= image_tag (cl_image_path @suitcase.photo.key), class: "avatar-large", alt: "avatar-large" %>
-      </div>
-      <div>
-        <div style="margin-left: 15px"><h3><%= @suitcase.name %></h3></div>
-        <div style="margin-left: 15px"><strong><%= @suitcase.destination %></strong></h6></div>
-      </div>
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+      <% if @suitcase.photo.attached? %>
+        <div class="suitcase-header">
+          <div>
+            <%= image_tag (cl_image_path @suitcase.photo.key), class: "avatar-large", alt: "avatar-large" %>
+          </div>
+          <div class="suitcase-desc">
+            <div>
+              <h3><%= @suitcase.name %></h3>
+            </div>
+            <div>
+              <strong><%= @suitcase.destination %></strong>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <div class="suitcase-header">
+          <div>
+            <%= image_tag (cl_image_path("waves_vacation_omfcsd.png")), class: "avatar-large", alt: "avatar-large" %>
+          </div>
+          <div class="suitcase-desc">
+            <div>
+              <h3><%= @suitcase.name %></h3>
+            </div>
+            <div>
+              <strong><%= @suitcase.destination %></strong>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
-  <% else %>
-    <div style=" display:flex; align-items: center; padding-top: 15px">
-      <div>
-        <%= image_tag (cl_image_path("waves_vacation_omfcsd.png")), class: "avatar-large", alt: "avatar-large" %>
-      </div>
-      <div>
-
-        <div style="margin-left: 15px"><h3><%= @suitcase.name %></h3></div>
-        <div style="margin-left: 15px"><strong><%= @suitcase.destination %></strong></h6></div>
-      </div>
-    </div>
-  <% end %>
+  </div>
 </div>
 <br>
 <div class="container">
-  <div class="row">
-    <div class="col-12" style="display: flex; justify-content: space-between; align-items: center">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-5 d-flex justify-content-between">
       <% if @suitcase.shared == true %>
         <%= link_to "Tous", suitcase_path(@suitcase, filter: @all ? "" : :all), class: "py-1 px-2  #{params[:filter] == "all" || params[:filter].nil? || params[:filter] == "" ? "btn-checked" : "btn-ghost"}" %>
         <%= link_to "Emballés", suitcase_path(@suitcase, filter: @checked ? "" : :checked), class: "py-1 px-2 #{params[:filter] == "checked" ? "btn-checked" : "btn-ghost"}" %>
@@ -47,8 +59,8 @@
     </div>
   </div>
   <br>
-  <div class="row">
-    <div class="col-12">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
       <div class="itemlist">
         <%= render "itemlist", items: @items  %>
       </div>
