@@ -1,6 +1,9 @@
 .title-primary {
   color: #2FA6C8;
   text-shadow:  1px 0 8px rgba(50, 50, 50, 0.1);
+  i {
+    font-size: 30px;
+  }
 }
 
 .home-card {
@@ -15,15 +18,12 @@
 
 .fa-history {
   color: #4ECAB0;
-  margin-right: 10px;
 }
 
 .fa-hourglass-half {
   color: #4ECAB0;
-  margin-right: 10px;
 }
 
 .fa-slideshare {
   color: #4ECAB0;
-  margin-right: 10px;
 }
