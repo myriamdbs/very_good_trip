@@ -1,11 +1,12 @@
 .home-banner {
-  height: 75vh;
+  height: 80vh;
   margin-bottom: 4vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   background-size: cover;
+  background-position: center;
   background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), image-url("background-home-v1.jpg");
   h1 {
     font-size: 2rem;
@@ -18,5 +19,5 @@
 }
 
 #home-title {
-  margin-bottom:40vh;
+  margin-bottom:46vh;
 }

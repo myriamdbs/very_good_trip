@@ -12,18 +12,62 @@
   margin-right: 2px;
   background-color: white;
   border-radius: 6px solid grey;
-  padding-top: 15px;
+  padding: 15px;
   box-shadow: 0px 8px 12px rgba(50, 50, 50, 0.1);
 }
 
 .fa-history {
   color: #4ECAB0;
+  margin-top: 15px;
 }
 
 .fa-hourglass-half {
   color: #4ECAB0;
+  margin-top: 15px;
 }
 
 .fa-slideshare {
   color: #4ECAB0;
+  margin-top: 15px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
