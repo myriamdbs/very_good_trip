@@ -16,7 +16,7 @@
               <% end %>
             <% else %>
               <div class="item-text-plus"><%= suggestion.name %></div>
-              <%= link_to suitcase_suggested_items_path(@suitcase, params: { suggestion_name: suggestion.name }), method: :post do %>
+              <%= link_to suitcase_suggestions_path(@suitcase, params: { suggestion_name: suggestion.name }), method: :post do %>
                 <i class="far fa-plus-square"></i>
               <% end %>
             <% end %>
