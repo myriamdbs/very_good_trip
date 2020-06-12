@@ -1,8 +1,8 @@
 <% content_for :meta_title, "Ajouter un article à ma valise" %>
 
 <div class="container pb-3 px-2 pt-1">
-  <div class="row">
-    <div class="col text-center">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6 col text-center">
       <br>
       <h3>Ajouter un article</h3>
       <br>
@@ -26,11 +26,9 @@
       <br>
       <%= link_to "Voir les suggestions", suitcase_interests_path, class: "btn btn-success btn-block" %>
       <br>
-      <div class="row mb-5">
-        <div class="col">
+
           <%= link_to "<i class='fas fa-arrow-circle-left'></i> Voir ma valise".html_safe, suitcase_path(@suitcase), class: 'btn btn-back mt-3 mb-4 d-flex align-items-center' %>
-        </div>
-       </div>
+
     </div>
   </div>
 </div>
