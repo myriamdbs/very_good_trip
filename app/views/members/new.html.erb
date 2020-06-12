@@ -1,6 +1,6 @@
 <div class="member-form container mt-3 text-center bg-light-gray">
-  <div class="row mb-5">
-    <div class="col">
+  <div class="row mb-5 justify-content-center">
+    <div class="col-12 col-lg-6">
       <h4 class="mb-4">Compagnons de voyage</h4>
       <%= simple_form_for [@suitcase, @member] do |f| %>
         <%= f.input :email, label: "Email :", placeholder: "brigitte@gmail.com", input_html: { class: "text-center" } %>
@@ -8,8 +8,8 @@
       <% end %>
     </div>
   </div>
-  <div class="row mb-5">
-    <div class="col">
+  <div class="row mb-5 justify-content-center">
+    <div class="col-12 col-lg-6">
       <h5 class="mb-3">Les compagnons de cette valise :</h5>
       <ul class="companion-list">
         <% @suitcase.member_users.each do |user| %>
@@ -22,9 +22,9 @@
       </ul>
     </div>
   </div>
-  <div class="row mb-5">
-    <div class="col">
-      <%= link_to "Continuer<i class='fas fa-arrow-circle-right'></i>".html_safe, 
+  <div class="row mb-5 justify-content-center">
+    <div class="col-12 col-lg-6">
+      <%= link_to "Continuer<i class='fas fa-arrow-circle-right'></i>".html_safe,
         suitcase_path(@suitcase),
         class: 'btn btn-back mt-3 mb-4 d-flex justify-content-end',
         data: {turbolinks: false}
