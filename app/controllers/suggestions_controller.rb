@@ -16,13 +16,17 @@ class SuggestionsController < ApplicationController
     end
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    authorize @item
+    @item.destroy
+    redirect_back(fallback_location: root_path)
+  end
+
   private
 
   def item_params
-    if params[:suggestion_name]
-      return { name: params[:suggestion_name] }
-    else
-      params.require(:item).permit(:name, :shared)
-    end
+    params[:suggestion_name] = { name: params[:suggestion_name] }
+    params.require(:suggestion_name).permit(:name)
   end
 end
