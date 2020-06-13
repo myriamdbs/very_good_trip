@@ -28,10 +28,6 @@ class ItemsController < ApplicationController
 private
 
   def item_params
-    if params[:suggestion_name]
-      return { name: params[:suggestion_name] }
-    else
       params.require(:item).permit(:name, :shared)
-    end
   end
 end

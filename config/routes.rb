@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   resources :items, only: [:destroy] do
     resource :tick, only: [:update]
   end
+  resources :suggestions, only: [:destroy]
 end
