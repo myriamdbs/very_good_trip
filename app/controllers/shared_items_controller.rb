@@ -10,6 +10,10 @@ class SharedItemsController < ApplicationController
     @item = Item.new(item_params)
     @member = @suitcase.members.find_by(user_id: params[:item][:user_in_charge])
     @item.member = @member
+    unless @member
+      @member = @suitcase.members.find_by(user: current_user)
+      @item.member = @member
+    end
     @item.suitcase = @suitcase
     authorize @item
     if @item.save
