@@ -1,7 +1,7 @@
 class ItemPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(user: user)
+      scope.all
     end
   end
 
@@ -13,11 +13,15 @@ class ItemPolicy < ApplicationPolicy
     true
   end
 
-  def update?
-    true
+  def destroy?
+    new?
   end
 
-  def destroy?
-    update?
+  def attached?
+    if record.shared
+      true
+    else
+      record.member.user_id == user.id
+    end
   end
 end

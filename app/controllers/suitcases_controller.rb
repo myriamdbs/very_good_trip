@@ -16,8 +16,8 @@ class SuitcasesController < ApplicationController
     authorize @suitcase
     if @suitcase.save
       add_essential_items
+      Member.create(suitcase: @suitcase, user: current_user)
       if @suitcase.shared
-        Member.create(suitcase: @suitcase, user: current_user)
         redirect_to new_suitcase_member_path(@suitcase)
       else
         redirect_to suitcase_path(@suitcase)

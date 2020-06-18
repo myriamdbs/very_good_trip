@@ -1,7 +1,7 @@
 class SuitcasePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(user: user)
+      scope.includes(:members).where(members: { user_id: user.id })
     end
   end
 
@@ -9,8 +9,11 @@ class SuitcasePolicy < ApplicationPolicy
     true
   end
 
-  def create?
-      true
+  def new?
+    true
   end
 
+  def create?
+    true
+  end
 end
