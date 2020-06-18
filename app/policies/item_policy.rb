@@ -13,6 +13,10 @@ class ItemPolicy < ApplicationPolicy
     true
   end
 
+  def update?
+    new?
+  end
+
   def destroy?
     new?
   end
