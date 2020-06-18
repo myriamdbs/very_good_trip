@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.suitcase = @suitcase
+    @item.member = @suitcase.members.find_by(user: current_user)
     authorize @item
     if @item.save
       redirect_to suitcase_path(@suitcase)

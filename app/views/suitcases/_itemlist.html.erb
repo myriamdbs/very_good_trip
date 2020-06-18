@@ -1,7 +1,7 @@
 <% items.each do |item| %>
 <% if policy(item).attached? %>
   <div class="item-wrap py-1">
-    <div class="item-packed" style="display:flex; align-items:center">
+    <div class="item-desc">
       <div class="d-flex align-self-end">
         <%if item.packed %>
           <% cta = '<i class="fas fa-check-circle"></i>'.html_safe %>

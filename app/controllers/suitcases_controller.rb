@@ -15,13 +15,9 @@ class SuitcasesController < ApplicationController
     @suitcase.user = current_user
     authorize @suitcase
     if @suitcase.save
+      @member = Member.create(suitcase: @suitcase, user: current_user)
       add_essential_items
-      Member.create(suitcase: @suitcase, user: current_user)
-      if @suitcase.shared
-        redirect_to new_suitcase_member_path(@suitcase)
-      else
-        redirect_to suitcase_path(@suitcase)
-      end
+      suitcase_redirect
     else
       render :new
     end
@@ -56,10 +52,18 @@ private
     params.require(:suitcase).permit(:name, :destination, :start_date, :end_date, :shared, :user, :photo, :member)
   end
 
+  def suitcase_redirect
+    if @suitcase.shared
+      redirect_to new_suitcase_member_path(@suitcase)
+    else
+      redirect_to suitcase_path(@suitcase)
+    end
+  end
+
   def add_essential_items
     @items = []
     [ "chargeur de téléphone", "dentifrice", "brosse à dents" ].each do |item_name|
-    @items << Item.create(name: item_name, suitcase: @suitcase)
+      @items << Item.create(name: item_name, suitcase: @suitcase, member: @member)
     end
   end
 end
