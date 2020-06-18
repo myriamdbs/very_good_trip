@@ -1,4 +1,5 @@
 <% items.each do |item| %>
+<% if policy_scope(Item) %>
   <div class="item-wrap py-1">
     <div class="item-packed" style="display:flex; align-items:center">
       <div class="d-flex align-self-end">
@@ -10,6 +11,7 @@
         <%= link_to cta, item_tick_path(item), method: :patch, remote: true %>
         <strong class="ml-2"><%= item.name.capitalize %></strong>
       </div>
+
       <% if item.shared %>
         <div class="badge badge-warning ml-2"><%= item.user_in_charge.first_name if item.user_in_charge %></div>
       <% end %>
@@ -18,4 +20,6 @@
       <%= link_to "+", item_path(item), method: :delete, data: { confirm: "Êtes-vous sûr ?" } %>
     </div>
   </div>
+
+<% end %>
 <% end %>

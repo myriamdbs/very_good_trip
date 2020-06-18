@@ -1,7 +1,7 @@
 class ItemPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(user: user)
+      scope.where(member_id: { user_id: user.id })
     end
   end
 
@@ -13,11 +13,7 @@ class ItemPolicy < ApplicationPolicy
     true
   end
 
-  def update?
-    true
-  end
-
   def destroy?
-    update?
+    new?
   end
 end
