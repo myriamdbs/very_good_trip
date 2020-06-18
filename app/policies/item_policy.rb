@@ -18,7 +18,10 @@ class ItemPolicy < ApplicationPolicy
   end
 
   def attached?
-    true
-    # record.member_id == 66
+    if record.shared
+      true
+    else
+      record.member.user_id == user.id
+    end
   end
 end
