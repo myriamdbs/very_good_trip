@@ -24,4 +24,8 @@ class SuitcasePolicy < ApplicationPolicy
   def update?
     true
   end
+
+  def destroy?
+    record.user_id == user.id
+  end
 end
