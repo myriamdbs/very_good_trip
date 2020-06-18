@@ -4,7 +4,7 @@ class Member < ApplicationRecord
 
   belongs_to :user, optional: true
   belongs_to :suitcase
-  has_many :items
+  has_many :items, dependent: :destroy
 
   validates :user_id, uniqueness: { scope: :suitcase_id, message: "Ce compagnon a déjà été ajouté" }
   validates :user_id, presence: { message: "Ce compagnon n'utilise pas encore l'application" }

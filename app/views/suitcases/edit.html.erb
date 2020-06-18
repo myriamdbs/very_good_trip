@@ -1,0 +1,31 @@
+<% content_for :meta_title, "Modifier une valise" %>
+
+<div class="bg-image">
+<div class="container py-2 form-with-bg">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+      <h4 class="text-center mt-3 mb-4">Modifier une valise</h4>
+      <%= simple_form_for(@suitcase) do |f| %>
+        <%= f.input :name, placeholder: 'Week-end à la mer', label: "Nom du voyage" %>
+        <%= f.input :destination, placeholder: 'Barcelone' %>
+        <%= f.input :start_date, as: :string, input_html: { class: "datepicker" }, placeholder: "2020-08-01", label: "Date de départ" %>
+        <%= f.input :end_date, as: :string, input_html: { class: "datepicker" }, placeholder: "2020-08-20",  label: "Date de retour" %>
+        <div class="custom-control custom-switch custom-switch-md px-3 mt-4 mb-1">
+          <%= f.input :shared, as: :boolean, label: "Associer des compagnons de voyage", input_html: { class: "custom-control-input"}, label_html: { class: "custom-control-label" } %>
+        </div>
+        <div class="form-inline mt-3 mb-4">
+          <%= f.input :photo, input_html: { class: 'hidden d-none', id: 'photo-input'}, label_html: { class: 'btn-light btn my-0 px-3'}, label: '<i class="fa fa-camera-retro pr-2"></i> Mettre une photo'.html_safe %>
+          <%= image_tag "", width: 100, class: "hidden ml-4", id: "photo-preview" %>
+        </div>
+        <%= f.button :submit, "Enregistrer", class: "btn btn-primary btn-block mb-3" %>
+      <% end %>
+      <% if policy(@suitcase).destroy? %>
+        <%= link_to "Supprimer cette valise", suitcase_path(@suitcase),
+                          method: :delete,
+                          data: { confirm: "Are you sure?" },
+                          class: "btn btn-danger btn-block mb-5" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
