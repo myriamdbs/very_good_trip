@@ -1,13 +1,12 @@
 class ItemsController < ApplicationController
+  before_action :find_suitcase, only: [:new, :create]
 
   def new
-    @suitcase = Suitcase.find(params[:suitcase_id])
     @item = Item.new
     authorize @item
   end
 
   def create
-    @suitcase = Suitcase.find(params[:suitcase_id])
     @item = Item.new(item_params)
     @item.suitcase = @suitcase
     authorize @item
@@ -29,5 +28,9 @@ private
 
   def item_params
       params.require(:item).permit(:name, :shared)
+  end
+
+  def find_suitcase
+    @suitcase = Suitcase.find(params[:suitcase_id])
   end
 end

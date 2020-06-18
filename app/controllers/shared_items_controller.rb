@@ -1,20 +1,15 @@
 class SharedItemsController < ApplicationController
+  before_action :find_suitcase, only: [:new, :create]
+
   def new
-    @suitcase = Suitcase.find(params[:suitcase_id])
     @item = Item.new
     authorize @item
   end
 
   def create
-    @suitcase = Suitcase.find(params[:suitcase_id])
     @item = Item.new(item_params)
-    @member = @suitcase.members.find_by(user_id: params[:item][:user_in_charge])
-    @item.member = @member
-    unless @member
-      @member = @suitcase.members.find_by(user: current_user)
-      @item.member = @member
-    end
     @item.suitcase = @suitcase
+    member_attribution
     authorize @item
     if @item.save
       redirect_to suitcase_path(@suitcase)
@@ -27,5 +22,18 @@ class SharedItemsController < ApplicationController
 
   def item_params
       params.require(:item).permit(:name, :shared)
+  end
+
+  def find_suitcase
+    @suitcase = Suitcase.find(params[:suitcase_id])
+  end
+
+  def member_attribution
+    @member = @suitcase.members.find_by(user_id: params[:item][:user_in_charge])
+    @item.member = @member
+    if @member.nil?
+      @member = @suitcase.members.find_by(user: current_user)
+      @item.member = @member
+    end
   end
 end
