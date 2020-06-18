@@ -22,7 +22,7 @@ class ItemPolicy < ApplicationPolicy
   end
 
   def attached?
-    if record.shared
+    if record.shared || record.member.nil?
       true
     else
       record.member.user_id == user.id
