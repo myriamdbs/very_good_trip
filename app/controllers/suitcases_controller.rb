@@ -1,5 +1,5 @@
 class SuitcasesController < ApplicationController
-  before_action :find_suitcase, only: [:show]
+  before_action :find_suitcase, only: [:show, :edit, :update]
 
   def index
     @suitcases = policy_scope(Suitcase).order(start_date: :asc)
@@ -40,6 +40,16 @@ class SuitcasesController < ApplicationController
     else
       @suitcase.items
     end
+  end
+
+  def edit
+    authorize(@suitcase)
+  end
+
+  def update
+    authorize(@suitcase)
+    @suitcase.update(suitcase_params)
+    redirect_to suitcase_path(@suitcase)
   end
 
 private

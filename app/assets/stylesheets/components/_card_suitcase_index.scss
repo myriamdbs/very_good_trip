@@ -43,4 +43,27 @@
   text-shadow: none;
 }
 
-
+.card-edit-link {
+  color: #7C7792;
+  text-decoration: none;
+  border-radius: 50%;
+  border: 1px solid #7C7792;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  opacity: 0.6;
+  font-weight: lighter;
+  &:hover {
+    transition: ease 0.5s;
+    color: white;
+    background-color: #7C7792;
+    border: 1px solid white;
+    text-decoration: none;
+    opacity: 1;
+  }
+}

@@ -10,10 +10,14 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
-      <% if @suitcase.photo.attached? %>
+
         <div class="suitcase-header">
           <div>
-            <%= image_tag (cl_image_path @suitcase.photo.key), class: "avatar-large", alt: "avatar-large" %>
+            <% if @suitcase.photo.attached? %>
+              <%= image_tag (cl_image_path @suitcase.photo.key), class: "avatar-large", alt: "avatar-large" %>
+            <% else %>
+              <%= image_tag (cl_image_path("waves_vacation_omfcsd.png")), class: "avatar-large", alt: "avatar-large" %>
+            <% end %>
           </div>
           <div class="suitcase-desc">
             <div>
@@ -23,22 +27,10 @@
               <strong><%= @suitcase.destination %></strong>
             </div>
           </div>
+          <div><%= link_to '<i class="fas fa-pencil-alt"></i>'.html_safe,
+                          edit_suitcase_path(@suitcase), class: "card-edit-link" %></div>
         </div>
-      <% else %>
-        <div class="suitcase-header">
-          <div>
-            <%= image_tag (cl_image_path("waves_vacation_omfcsd.png")), class: "avatar-large", alt: "avatar-large" %>
-          </div>
-          <div class="suitcase-desc">
-            <div>
-              <h3><%= @suitcase.name %></h3>
-            </div>
-            <div>
-              <strong><%= @suitcase.destination %></strong>
-            </div>
-          </div>
-        </div>
-      <% end %>
+
     </div>
   </div>
 </div>
