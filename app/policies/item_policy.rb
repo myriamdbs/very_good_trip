@@ -1,7 +1,7 @@
 class ItemPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(member_id: { user_id: user.id })
+      scope.all
     end
   end
 
@@ -15,5 +15,10 @@ class ItemPolicy < ApplicationPolicy
 
   def destroy?
     new?
+  end
+
+  def attached?
+    true
+    # record.member_id == 66
   end
 end

@@ -1,5 +1,5 @@
 <% items.each do |item| %>
-<% if policy_scope(item) %>
+<% if policy(item).attached? %>
   <div class="item-wrap py-1">
     <div class="item-packed" style="display:flex; align-items:center">
       <div class="d-flex align-self-end">
