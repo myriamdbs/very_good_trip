@@ -27,8 +27,10 @@
               <strong><%= @suitcase.destination %></strong>
             </div>
           </div>
-          <div><%= link_to '<i class="fas fa-pencil-alt"></i>'.html_safe,
-                          edit_suitcase_path(@suitcase), class: "card-edit-link" %></div>
+          <div>
+            <%= link_to '<i class="fas fa-pencil-alt"></i>'.html_safe,
+                          edit_suitcase_path(@suitcase), class: "card-edit-link" %>
+          </div>
         </div>
 
     </div>
