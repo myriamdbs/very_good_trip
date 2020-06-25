@@ -2,10 +2,11 @@
   display: flex;
   align-items: center;
   padding-top: 15px;
+  justify-content: space-between;
 }
 
 .suitcase-desc {
-  margin-left: 15px;
+  margin-left: 10px;
 }
 
 .card-edit-link {
@@ -18,9 +19,9 @@
   align-items: center;
   height: 30px;
   width: 30px;
-  position: absolute;
-  right: 15px;
-  top: 15px;
+  // position: absolute;
+  // right: 15px;
+  // top: 15px;
   opacity: 0.6;
   font-weight: lighter;
   &:hover {
